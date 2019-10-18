@@ -1,0 +1,398 @@
+\documentclass[pdftex,12pt]{article}
+\usepackage[pdftex]{graphicx,color}
+\usepackage{setspace}
+\usepackage{amsmath,amssymb}
+\usepackage{titlesec}
+\usepackage{subfigure}
+\usepackage{fancyhdr}
+\usepackage[longnamesfirst]{natbib}
+\usepackage{cite}
+\usepackage[paperwidth=8.5in,
+left=0.75in,right=0.75in,paperheight=11.0in,textheight=9.50in]{geometry}
+\usepackage{xcolor}
+
+\bibliographystyle{ecta}
+
+\definecolor{nblue}{RGB}{0,0,128}
+
+\usepackage[pdftex,bookmarks=false,
+pdfdisplaydoctitle = {true},
+pdfstartview={XYZ null null 0.65},
+pdftitle={CEMFI NOTES: The Distributional Consequences of Trade and Policy Responses.},
+pdfauthor={Michael E. Waugh},
+pdfkeywords={economics, trade, dynamics, quant econ, consumption, data science, cars, waugh, incomplete markets, inequality, Ricardo, julia, migration, China, trade war, tariffs },
+colorlinks=true,linkcolor=darkgray,citecolor=darkgray,urlcolor=darkgray,
+breaklinks]{hyperref}
+
+
+\usepackage{setspace}
+
+\onehalfspace
+
+\renewcommand{\baselinestretch}{1.2}
+\renewcommand{\arraystretch}{.7}
+\renewcommand\familydefault{\sfdefault}
+
+\titleformat{\section}{\large\bf}{\thesection.}{.5em}{}
+\titleformat{\subsection}{\normalsize\bf}{\thesubsection.}{.5em}{}
+\titleformat{\subsubsection}{\normalsize\bf}{\thesubsubsection.}{.5em}{}
+
+\def\thesection{\arabic{section}}
+\def\thesubsection{\Alph{subsection}}
+\def\thesubsubsection{\Roman{subsubsection}}
+
+\newtheorem{proposition}{Proposition}
+
+%\pagestyle{empty}
+\lhead{}
+\rhead{}
+\rfoot{\date}
+\cfoot{\thepage}
+\lfoot{}
+\renewcommand{\headrulewidth}{0pt}
+
+\lfoot{Revised:  \today}
+
+\begin{document}
+
+lectures on trade and distributional effects 
+
+\pagestyle{fancy}
+
+\noindent \textbf{Notes: \href{http://www.waugheconomics.com/}{ The Distributional Consequences of Trade and Policy Responses.}}\\
+
+\noindent  What are the distributional impacts of trade? And what can policy do to alleviate the negative consequences of trade?  These are the questions that interest me and the goal of this course is to provide a limited introduction to the recent literature studying these issues. By limited, I'm going to provide you my world view of these issues in the literature by organizing it around my own work in: \citet{lyon2019}, \citet{lyon2018redistributing}, and \citet{waugh_consumption}.
+
+\medskip
+\noindent While this is a limited view (I only have 3 meetings), I do want to emphasize that their are issues here which are way broader than trade. In fact, some of the most important policy issues regarding distributional issues associated with technical change (i.e., robots) and immigration relate to what I'm going to talk about. Specifically, the empirical techniques used to measure distributional impacts and the modeling approaches to infer the aggregate, welfare, and policy prescriptions are directly applicable to these issues mentioned above. So what I'm saying is if you are looking for a PhD thesis topic/job market paper, these are not bad places to start.
+
+\section{What is the issue?}
+
+\subsection{High-Level}
+
+At a high-level, here is how I think of the issues at hand. In the US, there has been a dramatic rise in inequality over the last 40 years. My take is that for a while the discussion about these issues focused essentially on technological change and the role that it plays. Moreover, inequality/distributional issues were viewed as second-order to issues such as economic growth or cross-county income inequality (I think Lucas makes this point well). From the a trade perspective, inequality issues were always recognized and a core issue in the literature (HO model predicts this), but it was hard to find trade driven inequality in the data on top of the problems associated with the H-O model.
+
+\medskip
+\noindent I think a couple of things changed within the past 10 years that generated a lot of interest. One is the Great Recession in the US and the observations (particularly of \citet{mian2014explains}) regarding the role that distributional issues played in it. That is some guys had housing wealth that collapsed and these were the guys that bore the brunt of the shock. Second, from the trade perspective, was the work of \citet{david2013china}, who found large distributional effects from China's rise in early 2000's. This is, perhaps, the first time one really saw trade matter with respect to inequality. One way to put this is the following: \textbf{at the center of the two most important (aggregate) macroeconomic events of the 2000s|rise of China and Great Recession|are distributional issues.}
+
+\medskip
+\noindent A third point, an this is just casual observations, but the political change in the US, UK, elsewhere, distributional issues seem first-order. Hence, economist are revisiting these issues. Forget about trade, just think about the huge explosion of papers talking about competition, market power, labor share, etc. are all motivated by distributional concerns.
+
+\medskip
+\noindent This is perhaps a side note but also important to reflect on: The two key papers here both essentially use the same research design of a local-labor-markets approach. That is they thought about a labor market as being associated with a narrowly defined geography. And then studied how differential exposure of that geography correlates with exposure to China or a credit shock. In this sense, the distributional issues seem strongly related to the spatial distribution of activity.\footnote{I could go on forever about this. At first glance you might think this is natural, but in some sense it's odd. You could still have large distributional effects, but it is within a geography and the local-labor-markets approach would not detect them. Another way to see this is to measure income inequality across county's say in the US. It virtually tracks the change in inequality using individual-level data.} This fact shapes my thinking a lot about these issues as you will see below.
+
+\medskip
+\noindent A third issue is technological change. I think the profession has made a lot of progress in working with heterogenous agents (firms, workers, consumers). 10 years ago, there was a lot. Now there is even more. So the point is that we have even better models/computational approaches for dealing with these issues.
+
+\subsection{Low-Level}
+
+As mentioned above, it is empirical observations (the diff-in-diff evidence) are really driving the boat here. At a low-level, the research question(s) are really about this: \textbf{While the diff-in-diff evidence are what they are, the key issue is interpretation.} Interpretation is very nuanced for a lot of reasons, I'm going to focus on two:
+\begin{itemize}
+\item \textbf{Level and general equilibrium effects.} While the diff-in-diff is super compelling, it has a huge weakness in that it can never tell you about what is going on with the level (and ge effects). The trade case is really clear. A perfectly plausible interpretation of the \citet{david2013china} evidence is that all labor markets gained, just some gained more than others. Why? The simplest story is through GE where the price of goods is falling making all households better off, even though some labor markets are performing relatively worse than others.
+
+\item \textbf{So what? The normative implications.} Again, the diff-in-diff is super compelling, what should a policy maker do? The diff-in-diff evidence tells us nothing! You can't look at \citet{david2013china} and say, well we should not trade with China anymore and by placing a tariff on there goods we will be better off. Yet the irony is that diff-in-diff evidence crying out for some kind of investigation into what good policy might look like.
+\end{itemize}
+The solution to these issues is to add layer in an economic model to help us better understand the ``real world evidence'' in a controlled environment where we know what is going on. Second, within an economic model, one can evaluate outcomes associated with different policy. And even think about the best policies (in a formal sense). This is my goal.
+
+\medskip
+\noindent Again, perhaps, a side note. But the local-labor-markets approach is predicated on the idea that labor is not moving (at least in the short run). Thus, these research designs are avoiding what is perhaps the \textbf{BIG} question: \textbf{why is not labor moving to exploit spatial arbitrage opportunities?}
+
+\section{Data, Model, Data}
+
+\subsection{Data}
+
+Per the discussion above, the want here is to think about an empirical relationship that takes the form:
+\begin{align}
+\Delta \log Y_{it} = \beta \Delta \log Z_{it} + \gamma_t + \epsilon_{it}.
+\label{eq:adh_data_specification}
+\end{align}
+where $Y_{it}$ is some outcome in $i$ at $t$ and $Z_{it}$ is some shock. There is a time fixed effect to control for aggregate changes. And everything is done in differences. This is a classic difference in difference specification. The $i$ variable is often geography, something like a county or a commute zone (measure of a local labor market). The shock might be actual trade flows (we can talk about how they do this), tariffs as in my new paper \citet{waugh_consumption}, a measure of trade uncertainty in \citet{pierce2016surprisingly}, etc. Note also this is essentially the same specification that \citet{mian2013household} use in their stuff. It also looks a lot like the stuff that \citet{townsend1994risk} was doing on risk sharing. 
+
+Now here are some specific issues that we want to think about (with a model):
+\begin{itemize}
+\item The error term. What is this? What are the issues? Why might there be problems? \citet{david2013china} make a huge deal of this, I often found it hard to think through until I did the stuff below. But from an economic standpoint, these are nontrival questions.
+    
+\item What is $\beta$? You can appeal to some mumbo-jumbo about causal effect, but is this a parameter, a mixture of things, how does it map into primitives. This are first steps to going from the empirical results to normative statements. 
+    
+\item The aggregate effects. If you are new to this, it might not seem obvious, but all the action is embedded in the time effect. We will see this below.
+\end{itemize}
+Again, what is the want: I want to understand what \ref{eq:adh_data_specification} is all about. To do so, all I'm going to do is to make a slight, but obviously important departure from the Canonical Ricardian model of trade, add the immobility of labor and then work through the implications. 
+
+\subsection{A Brief Primer on Ricardian Models and \citet{eaton2002technology}}
+
+Here is my quickest introduction.
+
+\medskip
+\noindent \textbf{Production.} Within a country, there is a continuum of intermediate goods indexed by $\omega \in [0, 1]$. As in the Ricardian model of \citet{dornbusch1977comparative} and \citet{eaton2002technology}, intermediate goods are not nationally differentiated. Thus, intermediate $\omega$ produced in one country is a perfect substitute for the same intermediate $\omega$ produced by another country. Competitive firms produce intermediate goods with linear production technologies,
+\begin{align}
+q(\omega) = z(\omega) \ell,
+\end{align}
+where $z$ is the productivity level of firms and $\ell$ is the number of efficiency units of labor. Intermediate goods are aggregated by a competitive final-goods produce who has a standard CES production function:
+\begin{align}
+Q = \left[ \int_0^1 q(\omega)^\rho d\omega \right]^{\frac{1}{\rho}},
+\label{eq:ces}
+\end{align}
+where $q(\omega)$ is the quantity of individual intermediate goods $\omega$ demanded by the final-goods firm, and $\rho$ controls the elasticity of substitution across variety, which is $\theta = \frac{1}{1-\rho}$. Transporting intermediate goods across countries is costly. Specifically, consumers and firms face iceberg trade costs when importing and exporting their products. This gives rise to the following the demand curve for an individual variety:
+\begin{align}
+q(\omega) & = \left(\frac{p(\omega)}{P_h}\right)^{-\theta}Q.
+\label{eq:demand_curve}
+\end{align}
+where $Q$ is the aggregate demand for the final good; $P_h$ is the price associated with the final good which will be carried around briefly, but is ultimately normalized to the value one.
+
+\medskip
+\noindent \textbf{Households.} Basic way to think about this is a representative consumer that eats $Q$ and supplies labor inelastically (which we will normalize to one) to \textbf{any labor market within the county.} This is the free-labor mobility assumption that is standard/implicit in Ricardian models of trade.
+
+\medskip
+\noindent \textbf{Countries.} To keep things simple, just imagine that there is the home county and a large ROW (which would be a collection of other countries). The way we will do this is the ROW, we will say that there are some prevailing world prices for each commodity $\omega$ which I will denote as $p_w(\omega)$.
+
+\medskip
+\noindent \textbf{A Sketch of an Equilibrium and how Trade Works.} Ok, so let's just make a couple of observations.
+
+\begin{itemize}
+\item The first observation is that within a country, the key equilibrium price is the wage rate $w$. This is the same independent of the labor market / goods-producing sector / etc. This derives from the free mobility assumption. It's nice, but bad if you want to think about distributional issues. Fine.
+
+\item Why is it the key price? Because, now we know that price of any good, is independent of who works there, if it's sold, etc. Given competitive firms and that they face the one wage rate $w$, we now know that their marginal cost (and hence price at which they are willing to sell the good domestically) must be
+    \begin{align}
+    p(\omega) = \frac{w}{z(\omega)}.
+    \label{eq:ek_wage}
+    \end{align}
+    This is why I love the Ricardian model. Think about this, who can sell at a low price. Well if your wage is low, so this helps China or Bangledesh. Or if your technology is really good, so if $z(\omega)$ is large, this helps the US and Germany. Then the most interesting part is how technology interacts with the wage...so the wage will move to always offset a countries technological disadvantage.
+
+\item Who buys what from whom? Second reason why I love the Ricardian model is that really is just an application of the min operator. So by the good from the country with the lowest price:
+    \begin{align}
+    \min\left\{ \frac{w}{z(\omega)} , \ \tau p_w(\omega) \right\}
+    \end{align}
+where the thing on the left is the domestic price, and then the thing on the right is on the world price (inclusive of the trade cost). 
+
+\item What I'm going to do is a bit strange, but it will help set up the next model. If the good is purchased from home, then we know there are workers there, they earn $w$. And how many workers are there? Well enough so that domestic demand (and possible foreign demand, i.e. exports) equals foreign supply. 
+    
+    Now here is the strange, off equilibrium part. Think about if a the world is the low cost producer, so the prevailing domestic price is $\tau p_w(\omega)$. If a domestic firm were to produce, it would have to be selling at that price. Ok. If it were to hire workers, the wage it could pay would equal $\tau p_w(\omega) z(\omega)$ or the value of the marginal product of labor. But we know from above that 
+$\tau p_w(\omega) z(\omega) < w$. And because of free mobility of workers, no workers would accept that wage $\tau p_w(\omega) z(\omega)$. 
+
+So the domestic firm producing variety $\omega$ does not operate. No workers are actually ever ``exposed to import competition.'' Again this is all about the free mobility of labor assumption.
+
+\item The distributional assumption to facilitate aggregation. A core insight of \citet{eaton2002technology} is to treat the $z(\omega)$ as a random variable and then exploit the distributional assumptions to aggregate. The second insight is to pick a distribution that can handle the min (or max operator) easily, and that is the Frechet distribution. I won't get into the details about how to derive this. But to see how this works, think about how you would go about using simulation to compute trade flows.
+\begin{itemize}
+\item Step 1: Assume a distribution for $z$ and $p_w$. Note I'm dropping the $\omega$ subscript as we can treat each good symmetrically given the demand curve associated with \ref{eq:ces}.
+
+\item Draw a bunch of pairs of $z$ and $p_w$. 
+
+\item Given a wage, for each pair of $z$ and $p_w$ figure out who is low cost supplier and compute demand, etc.
+
+\item Make sure labor demand equals labor supply. Note in this is the same as ensuring that trade is balanced (it's a static model). If not update the wage.
+\end{itemize}
+\end{itemize}
+What have we learned. Not much. We built intuition for a more complicated setting in which labor is not mobile. As mentioned above, this is a key issue just to even get off the ground and start to think about distributional issues and trade. 
+
+\subsection{Immobile Labor $+$ \citet{eaton2002technology} $=$ Static \citet{lyon2019}}
+
+So here is what I'm going to do. First, I'm going to think about a repeated static world. This is going to allow me to think about the diff-in-diff eventide. You need some time dimension. 
+
+\medskip
+\noindent Then, I'm going to say that good-level productivity and world-prices take discrete states and follow a first order Markov chain, with $\mathcal{P}(z'|z)$ being the probability that $z$ transits to $z'$. Similarly for world prices $p_w$. \textbf{ Important! I'm going to assume that the evolution of $z$ and world prices $p_w$ are orthogonal to each other.} Why is this important, wait for it. Now define $\textbf{s}$ domestic productivity and world price combination associated with that island, $\textbf{s} = \{z, p_w\}$. We denote $\pi(\textbf{s})$ as the stationary distribution of productivity states and world prices induced by the Markov Chain.
+
+\medskip
+\noindent \textbf{Important Step!} Denote $\mu(\textbf{s})$ as the measure of households working on an island with state $\textbf{s}$. The key issue is they only have the ability to work in islands of state $\textbf{s}$. They can not move. Where does $\mu(\textbf{s})$ come from? I'll layer a model of migration on this do determine it in equilibrium. But for now, just think of it as given. Second, note what this is doing in that what it is doing is tying the product space and the geography together. This is what I call ``company towns'' where a location is completely specialized in a product.
+
+\medskip
+\noindent \textbf{Wages.} Competition implies that the wage at which a firm hires labor is:
+\begin{align}
+w(\textbf{s}) = p(\textbf{s}) z
+\label{eq:marginal_products_soe}
+\end{align}
+or the value of the marginal product of labor. Only at the wage in (\ref{eq:marginal_products_soe}) are intermediate-goods producers willing to produce. Notice how this is different than (\ref{eq:ek_wage}). Now the wage is index by the island specific state $\textbf{s}$! Why labor can not move across locations and try and exploit a wage differential. Instead the household is ``captive'' at wage rate $w(\textbf{s})$.
+
+\medskip
+\noindent \textbf{International Trade and Market Clearing.} Here is the issue, now we need to find a set of prevailing prices that the final-goods producer in the home country faces as $ p(\textbf{s}) \ , \tau_{im} p_w \ , p_w / \tau_{ex}$. Like in the \citet{eaton2002technology} world the final-goods producer purchases intermediate goods from the low-cost supplier (it's a still a Ricardian model). But now this decision gives rise to three cases with three different market-clearing conditions: if the good is non-traded; if the good is imported; and if the good is exported. Below, we describe demand and production in each of these cases.
+\begin{itemize}
+\item \textbf{Non-traded.} If the good is non-traded, then the domestic price for the home country must satisfy the following inequality: $\frac{p_w}{\tau_{ex}} < p(\textbf{s}) <  \tau_{im} p_w$. That is, from the home country's perspective, it is optimal to source the good domestically and not optimal for the home country to export the product.
+
+    In this case, the market-clearing condition is:
+    \begin{align}
+\left(\frac{p(\textbf{s})}{P_h}\right)^{-\theta}Q=  z \left( \mu(\textbf{s}) / \pi(\textbf{s}) \right)
+\label{eq:non_traded_mc_soe}
+    \end{align}
+    or that domestic demand equals production. The left-hand part is demand and the right-hand side is supply. That is the the productivity of domestic suppliers multiplied by the supply of labor units in that market.
+
+
+\item \textbf{Imported.} If the good is imported, then the domestic price for the home country must be $p(\textbf{s}) =  \tau_{im} p_w$. Why? If the price were lower, then it would not be imported. If the domestic price were higher, then the good will be imported with no domestic production and, thus, the prevailing domestic price will equal the imported price. With frictional labor markets, there may be some domestic production so the quantity of imports is
+    \begin{align}
+ \underbrace{ \left(\left(\frac{\tau_{im} p_w}{P_h}\right)^{-\theta}Q \right) - z\left( \mu(\textbf{s}) / \pi(\textbf{s})\right)}_{\mbox{imports}} \ \ > \ \ 0.
+\label{eq:imported_mc_soe}
+    \end{align}
+    That is home demand (net of home production) is met by imports of the commodity. Rearranging gives
+ \begin{align}
+ \left(\left(\frac{\tau_{im} p_w}{P_h}\right)^{-\theta}Q \right) \ \ = \ \ z\left( \mu(\textbf{s}) / \pi(\textbf{s})\right) \ \ + \ \  \mbox{imports}(\textbf{s})
+\label{eq:imported_mc_soe_im}
+ \end{align}
+or domestic demand equals domestic production plus imports.
+
+
+\item \textbf{Exported.} If the good is exported, then the prevailing price must be $p(\textbf{s})\tau_{ex} = p_w$. Why? If the home price were larger, then the good would not be purchased on the world market. And the price can not be lower, as arbitrage implies that the price of the exported good sold in the world market must equal the prevailing price in that market. Finally, note that only the trade cost, not the tariff, matters here. At this price, the quantity of exports is
+    \begin{align}
+ \underbrace{  \left(\frac{p_w/\tau_{ex}}{P_h}\right)^{-\theta}Q- z\left( \mu(\textbf{s}) / \pi(\textbf{s})\right)}_{- \ \mbox{exports}} \ \ < \ \ 0
+ \label{eq:exported_mc_soe}
+    \end{align}
+    or domestic demand net of production which should be negative, implying that the country is an exporter. Rearranging gives
+    \begin{align}
+ \left(\frac{p_w/\tau_{ex}}{P_h}\right)^{-\theta}Q \ \ = \ \  z\left( \mu(\textbf{s}) / \pi(\textbf{s})\right)  \ \ - \ \  \mbox{exports}(\textbf{s})
+ \label{eq:exported_mc_soe_ex}
+    \end{align}
+\end{itemize}
+or domestic demand equals domestic production minus exports.
+
+\medskip
+\noindent \textbf{A Sketch of an Equilibrium} This is far more intricate than the simple Ricardian model for the reason that an equilibrium is a collection of prices $\{ p(\textbf{s})\}$ for each location that (i) satisfy the demand and supply conditions discussed above. Then for everything to add up a simple condition would be for balanced trade to hold (like in the simple Ricardian model above). To see this last point we can work through the idea that production must equal expenditure. The the value of aggregate production of the final good must equal the value of intermediate goods production
+\begin{align}
+    Y = \int_{\textbf{s}} p(\textbf{s})z \mu(\textbf{s})
+\end{align}
+which we can then connect with the expenditure side of GDP through the market clearing conditions for intermediate goods and final goods. Specifically, by connecting the production side with the demand side for non-traded goods in (\ref{eq:non_traded_mc_soe}), imports in (\ref{eq:imported_mc_soe_im}) and exports in  (\ref{eq:exported_mc_soe_ex}) and the equating final demand with consumption we have
+\begin{align}
+    Y = Q +  \int_{\textbf{s}}p(\textbf{s})\mbox{exports}(\textbf{s}) - \int_{\textbf{s}}p(\textbf{s})\mbox{imports}(\textbf{s}).
+\label{eq:production_side_gdp}
+\end{align}
+Or GDP equals consumption (market) plus exports minus imports. Then with balanced trade (again, it's a static model), we get that output will equal what people are eating. 
+
+
+
+\subsection{Trade}
+
+To illustrate the pattern of trade across islands, first define the following statistic:
+\begin{align}
+\omega(\textbf{s}) := \frac{p(\textbf{s})z\mu(\textbf{s})}{p(\textbf{s})z\mu(\textbf{s}) \ \ + \ \  p(\textbf{s})\mbox{\normalfont imports}(\textbf{s}) - p(\textbf{s})\mbox{\normalfont exports(\textbf{s})}}.
+\label{eq_tax:good_home_share_prp}
+\end{align}
+What does equation (\ref{eq_tax:good_home_share_prp}) represent? The denominator is the value of domestic consumption: everything domestically produced plus imports minus exports. The numerator is production. The interpretation of (\ref{eq_tax:good_home_share_prp}) is how much of domestic consumption at the island/variety level the home country is producing. This is similar to the micro-level ``home share'' summary statistic emphasized in \citet{arkolakis2012new}. As we discuss below, this statistic (i) provides a clean interpretation of a labor market's exposure to trade and (ii) is tightly connected with local labor market wages.
+
+\medskip
+\noindent Figure \ref{fig:home_share} plots the home share (raised to the power of inverse $\theta$) by world price and home productivity. There are three regions to take note of: where goods are imported, exported, and non-traded. First, in the regions where the home share lies below one, demand is greater than supply, and, hence, goods are being imported. This region naturally corresponds to the situation with low world prices or low home productivity|i.e. the economy has a comparative disadvantage in producing these commodities.
+
+\medskip
+\noindent Second, in the regions where the home share lies above one, supply is greater than demand, and, hence, goods are being exported. This region corresponds to high world prices or high home productivity. In other words, this is where the country has a comparative advantage and is an exporter of the commodities.
+
+\begin{figure}[p]
+\centering{\includegraphics[width=\linewidth]{C:/github/TradeExposure/figures/home_share_smth.pdf}}
+\textbf{\caption{Trade: Home Share, $\omega(\textbf{s})^{\frac{1}{\theta}}$ \label{fig:home_share}}}
+
+
+\centering{\includegraphics[width=\linewidth]{C:/github/TradeExposure/figures/wages_smth.pdf}}
+\textbf{\caption{Wages\label{fig:wages_open}}}
+\end{figure}
+
+\medskip
+\noindent Third, there is the ``table top'' region in the middle, where the home share equals one. Hence, this is the region where the goods are non-traded. Exactly like the inner, non-traded region in the Ricardian model of \citet{dornbusch1977comparative}, the reason is trade costs. In this region, world prices and domestic productivity are not high enough for a producer to be an exporter of these commodities given trade costs. Furthermore, world prices and domestic productivity are not low enough to merit importing these commodities either. Thus, these goods are non-traded.
+
+\subsection{Trade and Wages}
+
+One can connect the pattern of trade across islands/labor markets in Figure (\ref{fig:home_share}) with the structure of wages in the economy. As we show in the Appendix, real wages in a market with state variable $\textbf{s}$ equal
+\begin{align}
+ w(\textbf{s}) = \omega(\textbf{s})^{\frac{1}{\theta}} \hat \mu( \textbf{s})^{\frac{-1}{\theta}}z^{\frac{\theta-1}{\theta}} C^{\frac{1}{\theta}}.
+ \label{eq_tax:wage_home_share_prp}
+\end{align}
+Here $\omega(\textbf{s})$ is the home share defined in (\ref{eq_tax:good_home_share_prp}); $\hat \mu( \textbf{s}) = \frac{\mu(\textbf{s})}{\pi(\textbf{s})}$ is the number of labor units;  $z$ is domestic productivity; $C$ is aggregate consumption. Below we walk through the algebraic steps to deriving the relationship discussed above. Note the general insight about this: CES models provide a very tight relationship between expenditure shares and prices, this is what I'm exploiting here. 
+\begin{enumerate}
+\item Begin with the following (generalized) labor demand and supply conditions in units of the final good:
+    \begin{align}
+p(\textbf{s})\pi(\textbf{s}) \left(\frac{p(\textbf{s})}{P_h}\right)^{-\theta}Q=  p(\textbf{s}) z\mu(\textbf{s}) + p(\textbf{s})\mbox{\normalfont imports}(\textbf{s}) - p(\textbf{s})\mbox{\normalfont exports(\textbf{s})} ,
+    \end{align}
+where by generalized we mean that the last two terms are only active if the good is imported or exported.
+
+\item Divide both sides by $p(\textbf{s})z\mu(\textbf{s})$ so that we have
+    \begin{align}
+\frac{p(\textbf{s})\pi(\textbf{s})}{p(\textbf{s})z\mu(\textbf{s})}  \left(\frac{p(\textbf{s})}{P_h}\right)^{-\theta}Q=  \omega(\textbf{s})^{-1}
+\label{eq:share_demand_one}
+    \end{align}
+And now the left hand side is in terms of the home share for the good that the local labor market produces. The key issue is that not all of world prices cancel out and we need to some how connect this with wages. Thus, the next step
+
+\item Then we combine this with how wages are set. Wages equal the value of the marginal product of labor...
+\begin{align}
+w(\textbf{s}) = \frac{p(\textbf{s}) z}{P_h},
+\label{eq:marginal_products_soe}
+\end{align}
+so wages reflect prices. Then if you carefully examine (\ref{eq:marginal_products_soe}) and (\ref{eq:share_demand_one}), you notice that the relationship between wages and prices and how you can substitute one for each other in the demand curve giving.
+\begin{align}
+\frac{\pi(\textbf{s})}{z\mu(\textbf{s})\bar{h}}  \left(\frac{w(\textbf{s})}{z}\right)^{-\theta}Q=  \omega(\textbf{s})^{-1}
+\end{align}
+
+\item Now it is simply about rearranging terms and then substituting in the market clearing condition of $Q$ with consumption $C$ which gives rise to the following:
+\begin{align}
+ w(\textbf{s}) = \omega(\textbf{s})^{\frac{1}{\theta}} \hat \mu( \textbf{s})^{\frac{-1}{\theta}}z^{\frac{\theta-1}{\theta}} C^{\frac{1}{\theta}}.
+\end{align}
+\end{enumerate}
+\medskip
+\noindent Equation (\ref{eq_tax:wage_home_share_prp}) connects the trade exposure measure in (\ref{eq_tax:good_home_share_prp}) with island-level wages. A smaller home share implies that wages are lower with elasticity $\frac{1}{\theta}$. This means that if imports (relative to domestic production) are larger, then wages in that labor market are lower. Similarly, a larger home share means that wages are higher. While this looks like the ``micro-level'' analog of the aggregate result of \citet{arkolakis2012new} it is different in one important respect: the micro-level wage response to micro-level trade exposure to trade takes the exact opposite sign.
+
+\medskip
+\noindent Figure \ref{fig:wages_open} illustrates these observations by plotting the logarithm of pre-tax wages by world price and home productivity so it exactly matches up with Figure \ref{fig:home_share}. As equation (\ref{eq_tax:wage_home_share_prp}) makes clear, there is a tight correspondence between wages and the home share in Figure \ref{fig:home_share}. As in Figure \ref{fig:home_share}, there are three regions to take note of.
+
+\medskip
+\noindent The first region is where import competition is prevalent (low world prices or low home productivity) wages are low. A way to understand this result is as follows: wages reflect the value of the marginal product of labor. In import competing islands, trade results in lower prices and, hence, lower wages. The second region is where exporting is prevalent. Exporting regions are able to capture high world prices, and, thus, wages are high in these islands. Finally, the center region is where commodities are non-traded. Here, the gradient of wages very much mimics the increase in domestic productivity. In contrast, where goods are imported or exported, the wage gradient mimics the change in world prices.
+
+\medskip
+\noindent \textbf{What have we achieved?} Remember the problem with the standard Ricardian model was that labor mobility killed any way to think about distributional issues. There was one wage. So while Figure \ref{fig:home_share} would look the same in the mobile vs. immobile labor model; Figure \ref{fig:wages_open} would look radically different. In the standard Ricardian model, there would be flat surface which is independent of productivity or wages. In contrast, the immobile labor model delivers a relationship between how much labor is exposed to trade and the wage that labor earns. 
+
+
+\subsection{Back to Data:The ADH Equation}
+
+\medskip
+\noindent The preceding results relate closely to the empirical specification and evidence of \citet{david2013china}. To do illustrate the connection, start with (\ref{eq_tax:wage_home_share_prp}) and take log differences across time yielding
+\begin{align}
+ \Delta \log w(\textbf{s}) =  \underbrace{\frac{1}{\theta}}_{\beta}\Delta \log \left( \omega(\textbf{s})/\hat \mu( \textbf{s})\right) +  \underbrace{\frac{1}{\theta}\Delta \log C}_{\gamma_t} + \underbrace{\Delta \log \left(z^{\frac{\theta-1}{\theta}}\right)}_{\epsilon_{s,t}},
+\label{eq:adh_regression}
+\end{align}
+which says that the change in wages across locations is summarized by (i) trade exposure via the change in per-worker home share, (ii) the change in aggregate consumption and (iii) the change in location-specific productivity. Equation (\ref{eq:adh_regression}) is the empirical specification in equation (\ref{eq:adh_data_specification}).
+
+\medskip
+\noindent Now recall the issues we wanted to think about:
+Now here are some specific issues that we want to think about (with a model):
+\begin{itemize}
+\item \textbf{The error term. What is this? What are the issues?} The error term reflects the unobserved, local productivity shock. This is nice because we have a clear understanding of the problem. There is something confounding the story when we see a labor market with low/declining wages. Is it because the technology is bad? Or is it trade? The model here creates this nice tension! Note this is the classic issue, e.g. steel plans in the US are constantly saying their issues are related to trade, but they also have outdated technology. 
+    
+    Now if absolute advantage was uncorrelated with comparative advantage, then from an econometric stand point (I think things are ok). The problem is that if comparative advantage aligns with absolute advantage (i.e. most productive places are also likely to have a comparative advantage (and this is the natural case and what comes out of \citet{eaton2002technology}), the error term is correlated with a localities trade exposure. \textbf{Deep/non-trivial insight: through Ricardian comparative advantage, the local productivity shock will be correlated with a localities import exposure!}  Thus an instrumental variable strategy is necessary to identify the causal effect of trade exposure on wages.
+    
+    The structure of the model suggests several instrumental variable strategies. One valid instrument would be to use the world price (if observed) directly. The world price is orthogonal to domestic productivity (the exclusion restriction), yet correlated with the home trade share. The exclusion restriction follows from our small open economy assumption and the specification that the stochastic process in for world prices is assumed to be orthogonal to $z$.\footnote{Moveover, the model makes clear that one should be concerned, in general equilibrium, that a change in domestic productivity would feed into world prices and, thus, invalidate this strategy.} An alternative strategy would be to use another country's imports as an instrument. Another country's imports would be orthogonal to the home country's productivity, but correlated with world prices. This, in fact, is quite similar to the instrument proposed in \citet{david2013china}.
+    
+\item \textbf{What is $\beta$?} It tells us something about the labor demand curve. Which in this model, labor demand is derived from the CES production function. Hence it tells us something about how substitute products are across space. This is progress because now we can use external evidence to validate this. 
+    
+    Can you work this out? What if there was a simple labor supply curve in each location? Would that show up in this. What about an employment equation?
+
+\item \textbf{The aggregate effects.} These are all embedded in the time effect. And the way I wrote this done, the only aggregate variable is consumption (if, for example, I was carrying around a TFP term, this would show up here as well. Note, need to do this). Here is why the diff-in-diff stuff is so problematic.  Any change in aggregate trade exposure will also change in aggregate consumption, i.e. the $C$ term. That is all workers benefit from the``aggregate gains to trade'', but the island-level incidence will vary with its trade exposure and may mitigate or completely offset the aggregate benefits from trade. In the static version of this model, this is the key general equilibrium effect, that the diff-in-diff research design is hiding in the background. 
+    
+    If you stare at this long enough, you really start to understand why it is so hard to jump from the coefficient $\beta$, i.e. more trade leads to lower wages, without factoring in what is going on with the aggregate effect. 
+    
+    A couple of final points? Ok, why not just read off the time effect and... hold on. The example of TFP is relavent here in that the time effect will embed GE forces and exogenous changes like technological change so you can't separate them out. One thought on this though is to use the model impose some ``cross-equation'' restriction so that the GE component of the diff-in-diff time effect can be reverse engineered. 
+\end{itemize}
+
+
+
+\newpage
+
+\section{The ADH Data}
+
+Open up notebook on github:
+
+\begin{itemize}
+\item Trade on income and wages
+
+\item Employment effects
+
+\item Social assistence
+\end{itemize}
+
+
+\subsection{Open Issues}
+
+\begin{itemize}
+\item \textbf{What is up with manufacturing vs. non-manufacturing?}
+
+\item \textbf{1990s is a Red Herring, 2000s is where the action is.}
+
+\item \textbf{Migration issue}
+\end{itemize}
+
+
+
+\small
+\bibliography{micro_price_bibtex}
+
+\end{document}

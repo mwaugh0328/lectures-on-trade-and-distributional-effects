@@ -1,0 +1,142 @@
+\documentclass[12pt,pdftex,twoside,letterpaper]{exam}
+\usepackage{amsmath,amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{comment}
+\usepackage{layout}
+\usepackage{booktabs}
+\usepackage[flushleft]{threeparttable}
+\usepackage{caption}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=black,urlcolor=blue,bookmarks=false,pdfstartview={FitV}]{hyperref}
+\usepackage{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\usepackage{cite}
+\bibliographystyle{plain}
+
+%%%%%%%%%%%%%%%%%%%%%%Margins%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[margin=1.0in]{geometry}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{.09in}
+\raggedbottom
+
+%%%%%%%%%%%%%%%%%%%%Tighten up the lists%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\let\OLDdescription\description
+\renewcommand\description{\OLDdescription\setlength{\itemsep}{-2mm}}
+
+%%%%%%%%%%%%%%%%%%%%%%Headers and Footers%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{headandfoot}
+\runningheadrule
+\firstpageheadrule
+\firstpageheader{\includegraphics[width=0.25\textwidth]{stern_black1.pdf}}{}{PhD Topics Course: The Distributional Effects of Trade}
+\runningheader{The Distributional Effects of Trade}{}{}
+\runningfooter{}{}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%Exam class formating%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\printanswers
+\renewcommand{\partlabel}{\thepartno.}
+\renewcommand{\questionshook}{\setlength{\itemsep}{0.2in}}
+\renewcommand{\partshook}{\setlength{\leftmargin}{0.2in}}
+\renewcommand\familydefault{\sfdefault}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Let Backus fight the good fight, I'm going with LN%%%%%%%%%%%%%%%%%%%
+\renewcommand{\log}{\ln}
+
+
+\begin{document}
+
+
+\centerline{\large\bf Syllabus: PhD Topics Course: The Distributional Effects of Trade}
+\vspace{1mm}
+\centerline{\large\bf CEMFI|Fall 2019}
+\vspace{3mm}
+\centerline{\bf Revised:  \today}
+
+
+
+
+
+
+
+\vspace{-.25cm}
+
+\subsubsection*{About the Course}
+
+What are the distributional impacts of trade? And what can policy do to alleviate the negative consequences of trade?  This course will discuss recent evidence suggesting that trade has had important distributional effects on the labor market. It will then discuss recent modeling approaches which seek to ``fill the holes'' in purely empirical approaches to measuring the welfare consequences for those negatively affected by trade. It will discuss how these models then give rise to implications for how policy can be designed to achieve better outcomes as the world becomes more globalized. 
+
+
+\subsubsection*{About the Instructor}
+Professor Michael Waugh\\
+Email: mwaugh@stern.nyu.edu\\
+Home Page: \href{http://www.waugheconomics.com/}{http://www.waugheconomics.com/} \\
+Code Repository: \href{https://github.com/mwaugh0328}{https://github.com/mwaugh0328} 
+
+\subsubsection*{Where and When}
+\begin{itemize}
+\item Monday (10/21), Wednesday (10/23), Friday (10/25), Where?
+\end{itemize}
+
+
+\subsubsection*{Course Material}
+\begin{itemize}
+\item \textbf{Background Material} Much of this class will center around themes discussed in several of my own recent papers which can be found on my website. 
+\begin{itemize}
+\item \bibentry{lyon2019} 
+
+\item \bibentry{waugh_consumption}
+
+\item \bibentry{lyon2018redistributing}
+\end{itemize}
+
+\item \textbf{Monday (10/21)} Empirical evidence on the distributional effects of trade. What does the data say. Limitations to what the data can ever say. Overall strategy. 
+\begin{itemize}
+\item \bibentry{david2013china}
+
+\item \bibentry{barrot2016import}
+
+\item \bibentry{pierce2016surprisingly}
+
+\item \bibentry{krishna2014}
+\end{itemize}
+
+\item \textbf{Wednesday (10/23)} Competitive models of frictional labor markets, trade, and consumption. These are useful benchmarks for analysing these issues. Definitely not the end of the story (search and matching frictions, nominal rigidities, etc) 
+\begin{itemize}
+\item \bibentry{lyon2019}
+
+\item \bibentry{caliendo2015trade}
+
+\item \bibentry{galle2015slicing}
+
+\item \bibentry{artucc2010trade}
+\end{itemize}
+
+\item \textbf{Friday (10/25)} Scope for policy interventions. Discussion about the same issues beyond trade (immigration, uneven technological change).
+
+\begin{itemize}
+\item \bibentry{lyon2018redistributing},
+
+\item \bibentry{shourideh_2018}
+
+\item \bibentry{costinot2018robots}
+\end{itemize}
+
+\end{itemize}
+
+
+\subsubsection*{Help}
+
+Send me an email (\href{mailto:mwaugh@stern.nyu.edu}{mwaugh@stern.nyu.edu}). Or stop by my office in 3-6 and check to see if I'm available.
+
+\bibliography{micro_price_bibtex}
+
+
+\vfill \centerline{\it \copyright \ \number\year \
+NYU Stern School of Business}
+
+
+\end{document}
