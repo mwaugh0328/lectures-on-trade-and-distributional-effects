@@ -93,7 +93,7 @@ As mentioned above, it is empirical observations (the diff-in-diff evidence) tha
 A solution to these issues is layer in an economic model to help us better understand the ``real world evidence'' in a controlled environment where we know what is going on. Economic models have weaknesses, i.e. they rely upon strong assumptions about preferences, technology, market behavior. But being explicit about the environment is also a strength, it allows us confront these assumptions and determine if they are important to the model's interpretation of the evidence and then further refine. Second, within an economic model, one can evaluate outcomes associated with different policy. And even think about the best policies (in a formal sense). This is my goal.
 
 \medskip
-\noindent A final point that I alluded to above is this: the local-labor-markets approach is predicated on the idea that labor is not moving (at least in the short run). Thus, these research designs are avoiding what is perhaps the \textbf{BIG} question: \textbf{Why is not labor moving to exploit spatial arbitrage opportunities?} 
+\noindent A final point that I alluded to above is this: the local-labor-markets approach is predicated on the idea that labor is not moving (at least in the short run). Thus, these research designs are avoiding what is perhaps the \textbf{BIG} question: \textbf{Why is not labor moving to exploit spatial arbitrage opportunities?}
 
 \section{Data, Model, Data}
 
@@ -148,13 +148,13 @@ where $Q$ is the aggregate demand for the final good; $P_h$ is the price associa
 
 \begin{itemize}
 \item The first observation is that within a country, the key equilibrium price is the wage rate $w$. This wage is the same independent of the labor market / goods-producing sector / etc. This derives from the (within-country) free mobility of labor assumption. It's nice, but bad if you want to think about distributional issues.
-    
+
 \item Why is it the key price? Because with free labor mobility (and CRS production function) know that price of any good is independent of who works there, if it's sold, etc. Given competitive firms and that they face the wage rate $w$, we know that their marginal cost (and hence price at which they are willing to sell the good domestically) must be
     \begin{align}
     p(\omega) = \frac{w}{z(\omega)}.
     \label{eq:ek_wage}
     \end{align}
-    This is why I love the Ricardian model. Think about this, who can sell at a low price. Well if your wage is low, so this helps China or Bangledesh. Or if your technology is really good, so if $z(\omega)$ is large, this helps the US and Germany. Then the most interesting part is how technology interacts with the wage to determine who trade what, etc.\footnote{This is what distinguishes \citet{eaton2002technology} from saying it is just an application of discrete choice theory.} 
+    This is why I love the Ricardian model. Think about this, who can sell at a low price. Well if your wage is low, so this helps China or Bangledesh. Or if your technology is really good, so if $z(\omega)$ is large, this helps the US and Germany. Then the most interesting part is how technology interacts with the wage to determine who trade what, etc.\footnote{This is what distinguishes \citet{eaton2002technology} from saying it is just an application of discrete choice theory.}
 
 \item Who buys what from whom? Second reason why I love the Ricardian model is that really is just an application of the min operator. So buy the good from the country with the lowest price:
     \begin{align}
@@ -198,7 +198,7 @@ So here is what I'm going to do. I'm going to think about a repeated static worl
 w(\textbf{s}) = p(\textbf{s}) z
 \label{eq:marginal_products_soe}
 \end{align}
-or the value of the marginal product of labor. Only at the wage in (\ref{eq:marginal_products_soe}) are intermediate-goods producers willing to produce. Notice how this is different than (\ref{eq:ek_wage}). Now the wage is index by the island specific state $\textbf{s}$! Why labor can not move across locations and try and exploit a wage differential. Instead the household is ``captive'' at wage rate $w(\textbf{s})$. 
+or the value of the marginal product of labor. Only at the wage in (\ref{eq:marginal_products_soe}) are intermediate-goods producers willing to produce. Notice how this is different than (\ref{eq:ek_wage}). Now the wage is index by the island specific state $\textbf{s}$! Why labor can not move across locations and try and exploit a wage differential. Instead the household is ``captive'' at wage rate $w(\textbf{s})$.
 
 \medskip
 \noindent \textbf{International trade and market clearing.} Like in the \citet{eaton2002technology} world the final-goods producer purchases intermediate goods from the low-cost supplier (it's a still a Ricardian model). But now this decision gives rise to three cases with three different market-clearing conditions: if the good is non-traded; if the good is imported; and if the good is exported and hence different forms of price determination. What's the issue here? Unlike the simple Ricardian model, there is not one wage for which all prices goods prices can be inferred from. Now prices must actually be determined by labor demand and labor supply subject to the option to buy and sell abroad. Below, we describe demand and production in each of these cases.
@@ -242,11 +242,11 @@ or domestic demand equals domestic production minus exports.
 \medskip
 \noindent \textbf{A sketch of an equilibrium} Hopefully that you see that this is far more intricate than the simple Ricardian model for the reason that an equilibrium is a collection of prices $\{ p(\textbf{s})\}$ for each location that satisfy the demand and supply conditions discussed above. Then for everything to add up a simple condition would be for balanced trade to hold (like in the simple Ricardian model above). To see this last point we can work through the idea that production must equal expenditure. The the value of aggregate production of the final good must equal the value of intermediate goods production
 \begin{align}
-    Y = \int_{\textbf{s}} p(\textbf{s})z \mu(\textbf{s})
+    Q = \int_{\textbf{s}} p(\textbf{s})z \mu(\textbf{s})
 \end{align}
 which we can then connect with the expenditure side of GDP through the market clearing conditions for intermediate goods and final goods. Specifically, by connecting the production side with the demand side for non-traded goods in (\ref{eq:non_traded_mc_soe}), imports in (\ref{eq:imported_mc_soe_im}) and exports in  (\ref{eq:exported_mc_soe_ex}) and the equating final demand with consumption we have
 \begin{align}
-    Y = Q +  \int_{\textbf{s}}p(\textbf{s})\mbox{exports}(\textbf{s}) - \int_{\textbf{s}}p(\textbf{s})\mbox{imports}(\textbf{s}).
+    Q = C +  \int_{\textbf{s}}p(\textbf{s})\mbox{exports}(\textbf{s}) - \int_{\textbf{s}}p(\textbf{s})\mbox{imports}(\textbf{s}).
 \label{eq:production_side_gdp}
 \end{align}
 Or GDP equals consumption (market) plus exports minus imports. Then with balanced trade (again, it's a static model), we get that output will equal what people are eating.
@@ -282,7 +282,7 @@ What does equation (\ref{eq_tax:good_home_share_prp}) represent? The denominator
 
 One can connect the pattern of trade across islands/labor markets in Figure (\ref{fig:home_share}) with the structure of wages in the economy. As we show in the Appendix, real wages in a market with state variable $\textbf{s}$ equal
 \begin{align}
- w(\textbf{s}) = \omega(\textbf{s})^{\frac{1}{\theta}} \hat \mu( \textbf{s})^{\frac{-1}{\theta}}z^{\frac{\theta-1}{\theta}} C^{\frac{1}{\theta}}.
+ w(\textbf{s}) = \omega(\textbf{s})^{\frac{1}{\theta}} \hat \mu( \textbf{s})^{\frac{-1}{\theta}}z^{\frac{\theta-1}{\theta}} Q^{\frac{1}{\theta}}.
  \label{eq_tax:wage_home_share_prp}
 \end{align}
 Here $\omega(\textbf{s})$ is the home share defined in (\ref{eq_tax:good_home_share_prp}); $\hat \mu( \textbf{s}) = \frac{\mu(\textbf{s})}{\pi(\textbf{s})}$ is the number of labor units;  $z$ is domestic productivity; $C$ is aggregate consumption. Below we walk through the algebraic steps to deriving the relationship discussed above. Note the general insight about this: CES models provide a very tight relationship between expenditure shares and prices, this is what I'm exploiting here.
@@ -306,12 +306,12 @@ w(\textbf{s}) = \frac{p(\textbf{s}) z}{P_h},
 \end{align}
 so wages reflect prices. Then if you carefully examine (\ref{eq:marginal_products_soe}) and (\ref{eq:share_demand_one}), you notice that the relationship between wages and prices and how you can substitute one for each other in the demand curve giving.
 \begin{align}
-\frac{\pi(\textbf{s})}{z\mu(\textbf{s})\bar{h}}  \left(\frac{w(\textbf{s})}{z}\right)^{-\theta}Q=  \omega(\textbf{s})^{-1}
+\frac{\pi(\textbf{s})}{z\mu(\textbf{s})}  \left(\frac{w(\textbf{s})}{z}\right)^{-\theta}Q=  \omega(\textbf{s})^{-1}
 \end{align}
 
 \item Now it is simply about rearranging terms and then substituting in the market clearing condition of $Q$ with consumption $C$ which gives rise to the following:
 \begin{align}
- w(\textbf{s}) = \omega(\textbf{s})^{\frac{1}{\theta}} \hat \mu( \textbf{s})^{\frac{-1}{\theta}}z^{\frac{\theta-1}{\theta}} C^{\frac{1}{\theta}}.
+ w(\textbf{s}) = \omega(\textbf{s})^{\frac{1}{\theta}} \hat \mu( \textbf{s})^{\frac{-1}{\theta}}z^{\frac{\theta-1}{\theta}} Q^{\frac{1}{\theta}}.
 \end{align}
 \end{enumerate}
 \medskip
@@ -332,7 +332,7 @@ so wages reflect prices. Then if you carefully examine (\ref{eq:marginal_product
 \medskip
 \noindent The preceding results relate closely to the empirical specification and evidence of \citet{david2013china}. To do illustrate the connection, start with (\ref{eq_tax:wage_home_share_prp}) and take log differences across time yielding
 \begin{align}
- \Delta \log w(\textbf{s}) =  \underbrace{\frac{1}{\theta}}_{\beta}\Delta \log \left( \omega(\textbf{s})/\hat \mu( \textbf{s})\right) +  \underbrace{\frac{1}{\theta}\Delta \log C}_{\gamma_t} + \underbrace{\Delta \log \left(z^{\frac{\theta-1}{\theta}}\right)}_{\epsilon_{s,t}},
+ \Delta \log w(\textbf{s}) =  \underbrace{\frac{1}{\theta}}_{\beta}\Delta \log \left( \omega(\textbf{s})/\hat \mu( \textbf{s})\right) +  \underbrace{\frac{1}{\theta}\Delta \log Q}_{\gamma_t} + \underbrace{\Delta \log \left(z^{\frac{\theta-1}{\theta}}\right)}_{\epsilon_{s,t}},
 \label{eq:adh_regression}
 \end{align}
 which says that the change in wages across locations is summarized by (i) trade exposure via the change in per-worker home share, (ii) the change in aggregate consumption and (iii) the change in location-specific productivity. Equation (\ref{eq:adh_regression}) is the empirical specification in equation (\ref{eq:adh_data_specification}).
@@ -340,7 +340,7 @@ which says that the change in wages across locations is summarized by (i) trade 
 \medskip
 \noindent Now recall the issues we wanted to think about:
 \begin{itemize}
-\item \textbf{The error term. What is this? What are the issues?} The error term reflects the unobserved, local productivity shock. This is nice because we have a clear understanding of the problem. There is something confounding the story when we see a labor market with low/declining wages. Is it because the technology is bad? Or is it trade? The model here creates this nice tension! Note this is the classic issue, e.g. steel plans in the US are constantly saying their issues are related to trade, but they also have outdated technology. Which is it? 
+\item \textbf{The error term. What is this? What are the issues?} The error term reflects the unobserved, local productivity shock. This is nice because we have a clear understanding of the problem. There is something confounding the story when we see a labor market with low/declining wages. Is it because the technology is bad? Or is it trade? The model here creates this nice tension! Note this is the classic issue, e.g. steel plans in the US are constantly saying their issues are related to trade, but they also have outdated technology. Which is it?
 
     Now if absolute advantage was uncorrelated with comparative advantage, then from an econometric stand point (I think things are ok). The problem is that if comparative advantage aligns with absolute advantage (i.e. most productive places are also likely to have a comparative advantage (and this is the natural case and what comes out of \citet{eaton2002technology}), the error term is correlated with a localities trade exposure.  Thus an instrumental variable strategy is necessary to identify the causal effect of trade exposure on wages. \textbf{Deep/non-trivial insight: through Ricardian comparative advantage, the local productivity shock will be correlated with a localities import exposure!}
 
@@ -350,11 +350,11 @@ which says that the change in wages across locations is summarized by (i) trade 
 
     Can you work this out? What if there was a simple labor supply curve in each location? Would that show up in this. What about an employment equation?
 
-\item \textbf{The aggregate effects.} These are all embedded in the time effect. And the way I wrote this done, the only aggregate variable is consumption (if, for example, I was carrying around a TFP term, this would show up here as well. Note, need to do this). Here is why the diff-in-diff stuff is so problematic.  Any change in aggregate trade exposure will also change in aggregate consumption, i.e. the $C$ term. That is all workers benefit from the``aggregate gains to trade'', but the island-level incidence will vary with its trade exposure and may mitigate or completely offset the aggregate benefits from trade. In the static version of this model, this is the key general equilibrium effect. If labor supply were variable, then this would also move aggregate consumption as well. 
+\item \textbf{The aggregate effects.} These are all embedded in the time effect. And the way I wrote this done, the only aggregate variable is consumption (if, for example, I was carrying around a TFP term, this would show up here as well. Note, need to do this). Here is why the diff-in-diff stuff is so problematic.  Any change in aggregate trade exposure will also change in aggregate consumption, i.e. the $C$ term. That is all workers benefit from the``aggregate gains to trade'', but the island-level incidence will vary with its trade exposure and may mitigate or completely offset the aggregate benefits from trade. In the static version of this model, this is the key general equilibrium effect. If labor supply were variable, then this would also move aggregate consumption as well.
 
     If you stare at this long enough, you really start to understand why it is so hard to jump from the coefficient $\beta$, i.e. more trade leads to lower wages, without factoring in what is going on with the aggregate effect.
 
-    A couple of final points? Ok, why not just read off the time effect and... hold on. The example of TFP is relevant here in that the time effect will embed GE forces and exogenous changes like technological change so you can't separate them out. One thought to solve this issue is to use the model which would impose some ``cross-equation'' restriction so that the GE component of the diff-in-diff time effect can be reverse engineered. For example, micro-found labor supply and I'm sure that there would be a time effect showing up as well. Maybe we should work on this. 
+    A couple of final points? Ok, why not just read off the time effect and... hold on. The example of TFP is relevant here in that the time effect will embed GE forces and exogenous changes like technological change so you can't separate them out. One thought to solve this issue is to use the model which would impose some ``cross-equation'' restriction so that the GE component of the diff-in-diff time effect can be reverse engineered. For example, micro-found labor supply and I'm sure that there would be a time effect showing up as well. Maybe we should work on this.
 \end{itemize}
 
 
@@ -386,7 +386,148 @@ Open up notebook on github:
 \item \textbf{Migration issue}
 \end{itemize}
 
+\newpage
 
+\section{Static Model of Migration/Labor Supply}
+
+\medskip
+\noindent So I want to connect these results with the literature (specifically \citet{artucc2010trade}, \citet{caliendo2015trade}, \citet{galle2015slicing}) on migration and labor supply and more generally the ``quantitative spatial models'' many people have worked on recently. I'm going to present a static framework along the lines of \citet{caliendo2015trade} (which is a dynamic framework), but then at the end circle back and discuss where the dynamics are important and how they matter. Full disclosure, I have conflicting opinions on these models being (i) these are great models for developing understanding and intuition about the world but (ii) have some questionable implications that I will comeback to at then end.
+
+\medskip
+\noindent The basic setup is a Roy model. That is workers are heterogenous as in that they are endowed with a vector of preferences specific to each island \textbf{s}. In the derivations below, I'm going to think about two types of islands $\textbf{s}_h$ and $\textbf{s}_l$, but this is not important. I will provide the general formulas a bit latter (as practice you might want to derive them your self). A workers utility associated with working in an island is (say, of type $h$) is
+\begin{align}
+\varepsilon(\textbf{s}_h) w(\textbf{s}_h)
+\end{align}
+where $\varepsilon_h$ is the workers preference for being in location $h$ and $w(\textbf{s}_h)$ is the wage discussed above. A couple of notes about this formulation. The multiplicative shock may seem strange, but it is essentially the same formulation as \citet{caliendo2015trade}. There, they have log preferences and additive preference shocks with a distributional assumption on the additive shocks which are equivalent to a log transformation of the shocks outline above. A worker then chooses the location that delivers maximal utility.
+\begin{align}
+\max\{\ \varepsilon(\textbf{s}_h)  w(\textbf{s}_h) \ , \ \varepsilon(\textbf{s}_l)  w(\textbf{s}_l) \ \}
+\label{eq:worker_choice}
+\end{align}
+Note that already you can get a sense of some of the issues with this formulation. When you see somebody in a location, even if wages are bad, or the labor market looks bad, this model says the reason the guy is there is because he has a strong preference for this location. In other words, it's where he wants to be. 
+
+\medskip
+\noindent \textbf{Timing.} Again, this will be a repeated static model. Each period all states are revealed including the shocks $\varepsilon$ associated with each island type $\textbf{s}$. Then the workers chose where to work given complete information. The next period/day/year things start anew. 
+
+\medskip
+\noindent Now the want operator here is to connect the individual workers choice in (\ref{eq:worker_choice}) with the measure of workers $\mu(\textbf{s})$ that determine labor supply and production within each location. To do so we will use the \citet{eaton2002technology} insight to chose an well behave distribution on preferences with respect to the max operator above. So across the population of workers, preferences for each island state $\textbf{s}$ are distributed according to independent Frechet distributions:
+\begin{align}
+G(\varepsilon(\textbf{s})) = \exp\left(-T(\textbf{s})\varepsilon(\textbf{s})^{-\gamma}\right).
+\end{align}
+The $T(\textbf{s})$ parameter controls the average preference of a worker in island type $\textbf{s}$ and then $\gamma$ controls the dispersion. This is parameterized as in \citet{eaton2002technology} so a larger $\theta$ means there is less dispersion in preferences. I'm not going to do much with the $T(\textbf{s})$, but one way to think about it is that in reduced form it could represent the idea that some islands with different states are more desirable than others. The common $\gamma$ here is important though because without it the nice math below will not work out. 
+
+\subsection{Deriving the Employment Shares}
+
+So we want to derive the employment shares|given an equilibrium wage. Note|for a second I will stop carrying around the $\textbf{s}$. So to compute the share of workers choosing to be in $\textbf{s}_h$, it the boils down to computing the following probability:
+\begin{align}
+\mathrm{Prob}\left(w_h \varepsilon_h >  w_l\varepsilon_l\right) = \mathrm{Prob}\left(\tilde w \varepsilon_h > \varepsilon_l\right) = \int_0^{\infty}\left[\int_0^{\tilde w\varepsilon_h}g(\varepsilon_h,\varepsilon_l)d\varepsilon_l\right]d\varepsilon_h \label{eq:share_prob}
+\end{align}
+where $\tilde w$ is the relative wage. Equation \ref{eq:share_prob} says the following: First, fix a $\varepsilon_h$ and compute the probability that $\tilde w \varepsilon_h$ is larger (this is the inside bracket). Second,  integrate over all possible $\varepsilon_h$s (this is the outside bracket). This then computes the probability that a worker selects into a type $h$ island. Furthermore, notice that the inside bracket is just the \href{https://en.wikipedia.org/wiki/Marginal_distribution}{marginal distribution} $G'_{\varepsilon_h}(\varepsilon_h,\tilde w\varepsilon_h)$ evaluated at $\tilde w\varepsilon_h$.
+
+\medskip
+\noindent Plugging in the Frechet distribution into Equation (\ref{eq:share_prob}) and evaluating the integral we get
+\begin{align}
+\mu(\textbf{s}_h) = \mathrm{Prob}\left(w_h \varepsilon_h >  w_l\varepsilon_l\right) = \int_0^{\infty}\left[\int_0^{\tilde w\varepsilon_h}g(\varepsilon_h,\varepsilon_l)d\varepsilon_l\right]d\varepsilon_h = \frac{T_h w_h ^{\gamma}}{T_lw_l^{\gamma} + T_h \tilde w_h ^{\gamma}}
+\label{eq:share_formula}
+\end{align}
+which is the standard share formula. So if workers receive a relatively higher wage in island $h$ , then this means that the share of workers on island type $h$ will be larger. Second, returning to $T$s, this says if island type $h$ is a more ``attractive'' place to be in a utility sense, then more people will live and work there. Finally, note as well how a location is a relative statement. It's never about in absolute terms one place is better than the other, but how one place is relative to the ``average'' location (the object in the denominator) that matters. 
+
+\medskip
+\noindent Now to match it up with the model discussed above recall that there were a discrete number of states $\textbf{s}$ (the cross of $z$ by $p_w$) which we will denote as $N$. Second, let's not worry about differences in $T$s across island states, so we can simply assume that the $T$s take the same value, one for example. Using the same algebra as above, the general formula is 
+\begin{align}
+\mu(\textbf{s}) = \frac{w(\textbf{s})^{\gamma}}{\sum_{s \in \mathcal{S}} w(\textbf{s})^{\gamma}}
+\end{align}
+Again, islands with higher wages will have more people working on them. This is what a lot of researchers in trade/spatial literature call the ``labor supply curve.'' It says that as wages in an island type increase, the supply of labor increases with elasticity $\gamma$. A couple of points about this labor supply curve:
+\begin{itemize}
+\item This setup does nicely pick up the idea that labor will act like it is fixed within a location, but how much labor is fixed there will depend upon the wage in that location. Labor will be in every location, like we started with. Do you know why?
+
+\item The elasticity $\gamma$ plays the following role. As $\gamma$ becomes larger, a given change in wages will translate into a larger change in the share of workers working there. Why? As $\gamma$ becomes larger, the preference shocks become less dispersed. So workers are now more ``sensitive'' to wage considerations when choosing a location. In contrast, as $\gamma$ becomes small, preferences matter more and thus a larger wage response is needed to get people to move. 
+    
+\item Also, reflect on this. In the standard Ricardian model with free mobility of labor, this is like $\gamma$ becoming arbitrarily large. In other words, the labor supply curve becomes flat with it's intercept at the one, common, equilibrium wage.
+
+\item  Note that this way different than your traditional ``macro'' labor supply discussion. There the issues are either about intensive margin (hours worked) or extensive margin (work or not).\footnote{Adding an extensive margin is easy, just add an island, $w_o$ for being out of the labor force and treating $w_o$ as a transfer or home production (would have to be mindful of market clearing)} Here the margin is really about location or migration. This is a relevant margin that I think the traditional macro labor supply literature has not thought about much. And is an important issue given the decline in migration in the US. But the repeat static nature of things does strain the interpretation here of this being a model of migration.
+\end{itemize}
+From here we can then setup the system of equations that an equilibrium must satisfy. Specifically, the following (generalized) labor demand and supply conditions in units of the final good:
+\begin{align}
+\pi(\textbf{s}) \left(\frac{p(\textbf{s})}{P_h}\right)^{-\theta}Q =  z \left(\frac{w(\textbf{s})^{\gamma}}{\sum_{s \in \mathcal{S}} w(\textbf{s})^{\gamma}} \right) + \mbox{\normalfont imports}(\textbf{s}) - \mbox{\normalfont exports(\textbf{s})} ,
+\end{align}
+where the left-hand side is the total quantity demanded and then the right-hand supply is the quantity supplied. Where the quantity supplied would again depending upon the situation reflect the fact that domestic production may not equal domestic demand and, hence, there are imports or exports.
+
+\newpage
+
+\subsection{Social Welfare}
+
+Now here is where things start to get (i) disappointing and (ii) still helpful for developing intuition. I'm going to define the following within country (utilitarian) social welfare function:
+\begin{align}
+U = \sum_{s \in S} \left\{\int \varepsilon(\textbf{s}) w(\textbf{s})d\varepsilon \right\} \pi(\textbf{s})
+\label{eq:expected_utility}
+\end{align}
+where starting from the most inner part: utility for a worker on island $\textbf{s}$, then integrated over all workers in choosing to work in island $\textbf{s}$ (I need better notation here), then integrated over all islands (this is the sum with the probability weights). So the key issue is to compute the inner bracket, that is utility conditional on choosing that sector. 
+
+\medskip
+\noindent To compute expected utility conditional on choosing an island, we need to derive the preference distribution|conditional on those that select into the island. (Again to simplify notation, I'm going to revert back to the two state case and work through it, then show the general formula). This probability density is\ldots
+\begin{align}
+\mathrm{Prob}\left( \varepsilon_h < \varepsilon | w_h \varepsilon_h >  w_l\varepsilon_l\right) = \frac{\mathrm{Prob}\left( \varepsilon_h < \varepsilon , w_h \varepsilon_h >  w_l\varepsilon_l\right)}{\mathrm{Prob}\left(w_h \varepsilon_h >  w_l\varepsilon_l\right)}
+\end{align}
+where the right hand side is the probability that a workers productivity is less than some value, conditional on being in that island and the left hand side is the definition of this conditional density. To work through this, lets first compute the probability in the numerator
+\begin{align}
+\mathrm{Prob}\left( \varepsilon_h < \varepsilon , \tilde w \varepsilon_h > \varepsilon_l\right) = \int_0^{\varepsilon}\left[\int_0^{\tilde w\varepsilon_h}g(\varepsilon_h,\varepsilon_l)d\varepsilon_l\right]d\varepsilon_h.
+\end{align}
+This is the probability that a worker productivity for the $h$ island has productivity below $\varepsilon$ and chooses to work with an $h$ type island. How to you compute this probability, first fix an $\tilde w\varepsilon_h$ and compute the probability that the $\varepsilon_l$ is less than that value. This is what the integral in the bracket computes. Then sum up over the possible $\varepsilon_h$s up to the value $\varepsilon$. Like before, this observation also implies that the probability in the brackets is simply the \href{https://en.wikipedia.org/wiki/Marginal_distribution}{marginal distribution} $G'_{\varepsilon_h}(\varepsilon_h, \tilde w\varepsilon_h)$ evaluated at $\tilde w\varepsilon_h$. The probability in the denominator is closely related\ldots
+\begin{align}
+\mathrm{Prob}\left(\tilde w \varepsilon_h > \varepsilon_l\right) = \int_0^{\infty}\left[\int_0^{\tilde w\varepsilon_h}g(\varepsilon_h,\varepsilon_l)d\varepsilon_l\right]d\varepsilon_h
+\end{align}
+Which just integrates over all possible $\varepsilon_h$s to compute the probability that a worker selects into a type $h$ firm. Furthermore, this stuff in the brackets is also just the \href{https://en.wikipedia.org/wiki/Marginal_distribution}{marginal distribution} $G'_{\varepsilon_h}(\varepsilon_h,\tilde w\varepsilon_h)$ evaluated at $w\varepsilon_h$. Together, this implies that
+\begin{align}
+\displaystyle
+\mathrm{Prob}\left( \varepsilon_h < \varepsilon | w_h \varepsilon_h >  w_l\varepsilon_l\right) = \int_0^{\varepsilon}G'_{\varepsilon_h}(\varepsilon_h,\tilde w\varepsilon_h)d\varepsilon_h \ \ \bigg/ \ \ \int_0^{\infty}G'_{\varepsilon_h}(\varepsilon_h,\tilde w\varepsilon_h)d\varepsilon_h
+\end{align}
+Now how do we compute these integrals? So the marginal distribution $G'_{\varepsilon_h}(\varepsilon_h, \tilde w\varepsilon_h)$ is $g_{\varepsilon_h}(\varepsilon_h)G_{\varepsilon_l}(\tilde w\varepsilon_h)$ which follows from the independence of the draws. Then we just evaluate these integrals.
+
+\medskip
+\noindent The denominator of this probability is the same as the share formula so
+\begin{align}
+\int_0^{\infty}G'_{\varepsilon_h}(\varepsilon_h,w\varepsilon_h)d\varepsilon_h = \frac{T_h \tilde w ^{\gamma}}{T_l + T_h \tilde w ^{\gamma}}
+\end{align}
+Then the numerator of this probability is
+\begin{align}
+\int_0^{\varepsilon}G'_{\varepsilon_h}(\varepsilon_h,\tilde \varepsilon_h)d\varepsilon_h = \mu_h \exp\left[-\left(T_l\tilde w ^{-\gamma} + T_h \right)\varepsilon^{-\gamma}\right]
+\end{align}
+which then implies that the ratio of the two is equal to
+\begin{align}
+\mathrm{Prob}\left( \varepsilon_h < \varepsilon | w_h \varepsilon_h >  w_l\varepsilon_l\right) = \exp\left[-\left(T_l\tilde w ^{-\gamma} + T_h \right)\varepsilon^{-\gamma}\right]
+\end{align}
+which says that the conditional probability is itself distributed Frechet with centering parameter $\left(T_l\tilde w ^{-\gamma} + T_h \right)$. 
+
+\medskip
+\noindent To make things a bit more simple, notice that $\left(T_l\tilde w ^{-\gamma} + T_h \right) = T_h \mu_h^{-1}$ in (\ref{eq:share_formula}). This follow by multiplying and dividing the high share formula by $\tilde w^{-\gamma}$. Then to compute the conditional expectation we just simply compute the expected value associated with the distribution
+\begin{align}
+\mathrm{Prob}\left( \varepsilon_h < \varepsilon | w_h \varepsilon_h >  w_l\varepsilon_l\right) = \exp\left[-T_h\mu_h^{-1}\varepsilon^{-\gamma}\right]
+\end{align}
+which implies|after abstracting from constant terms| the expected preference value a worker receives is
+\begin{align}
+\mathrm{E}\left(\varepsilon_h\ |\varepsilon_h w_h > \varepsilon_l w_l\right) = T_h^{\frac{1}{\gamma}} \mu_h^{\frac{-1}{\gamma}}
+\end{align}
+which has the flavor of the \citet{arkolakis2012new} formula. The key thing to notice is that as the share of workers becomes small, then average preference value increases. This is classic selection at work in the sense that only those who value a location the most will remain there. The general relationship takes the same form
+\begin{align}
+\mathrm{E}\left(\varepsilon(\textbf{s}) \ |\varepsilon(\textbf{s}) w(\textbf{s}) > \max_{s \in S}\left\{\varepsilon(\textbf{s}) w(\textbf{s})\right\}\right) = T(\textbf{s})^{\frac{1}{\gamma}} \mu(\textbf{s})^{\frac{-1}{\gamma}}
+\end{align}
+Now for simplicity, let's drop the $T$s and then ask what is utility within a group? It is the wage times the average preference for that location
+\begin{align}
+w(\textbf{s}) \mu(\textbf{s})^{\frac{-1}{\gamma}} =  w(\textbf{s}) \left(\frac{w(\textbf{s})^{\gamma}}{\sum_{s \in \mathcal{S}} w(\textbf{s})^{\gamma}}\right)^{\frac{-1}{\gamma}} 
+ =  \left(\sum_{s \in \mathcal{S}} w(\textbf{s})^{\gamma}\right)^{\frac{1}{\gamma}} = \Phi. 
+\end{align}
+Notice what just happened. \textbf{Utility is independent of the island a worker is on. It does not depend on \textbf{s}}. It says, in terms of distributional effects, even though labor earnings are moving around with trade exposure (\ref{eq:adh_regression}), there is no effect on utility in the sense that one place gains more or less. It's all the same. 
+
+
+\newpage
+
+\section{Welfare and Normative Issues}
+
+
+
+
+
+\newpage
 
 \small
 \bibliography{micro_price_bibtex}
