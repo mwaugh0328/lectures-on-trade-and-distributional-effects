@@ -391,10 +391,14 @@ Open up notebook on github:
 \section{Static Model of Migration/Labor Supply}
 
 \medskip
-\noindent So I want to connect these results with the literature (specifically \citet{artucc2010trade}, \citet{caliendo2015trade}, \citet{galle2015slicing}) on migration and labor supply and more generally the ``quantitative spatial models'' many people have worked on recently. I'm going to present a static framework along the lines of \citet{caliendo2015trade} (which is a dynamic framework), but then at the end circle back and discuss where the dynamics are important and how they matter. Full disclosure, I have conflicting opinions on these models being (i) these are great models for developing understanding and intuition about the world but (ii) have some questionable implications that I will comeback to at then end.
+\noindent So I want to connect these results with the literature (specifically \citet{artucc2010trade}, \citet{caliendo2015trade}, \citet{galle2015slicing}) on migration and labor supply and more generally the ``quantitative spatial models'' many people have worked on recently (In \citet{lagakos2013selection} we were essentially the first to kind of work a bunch of this out, others have followed in nice ways like \citet{young2013inequality}, \citet{young2014structural} uses this idea as an alternative explanation for Baumol's Cost Disease; \citet{hsieh2013allocation} study selection's contribution to US aggregate growth; \citet{burstein2015accounting} use similar ideas to measure changes in between-group inequality.)
+
 
 \medskip
-\noindent The basic setup is a Roy model. That is workers are heterogenous as in that they are endowed with a vector of preferences specific to each island \textbf{s}. In the derivations below, I'm going to think about two types of islands $\textbf{s}_h$ and $\textbf{s}_l$, but this is not important. I will provide the general formulas a bit latter (as practice you might want to derive them your self). A workers utility associated with working in an island is (say, of type $h$) is
+\noindent I'm going to present a static framework along the lines of \citet{caliendo2015trade} (which is a dynamic framework), but then at the end circle back and discuss where the dynamics are important and how they matter. Full disclosure, I have conflicting opinions on these models being (i) these are great models for developing understanding and intuition about the world but (ii) have some questionable implications that I will comeback to at then end.
+
+\medskip
+\noindent The basic setup is a Roy model.\footnote{This is a really amazing paper, no equations, nothing, but talks through all the issues about selection, the role of ability in determining things, relative variances, inequality, etc. It kind of lied in obscurity until Heckman and Borjas started actually using it in quantiative/empirical work} That is workers are heterogenous as in that they are endowed with a vector of preferences specific to each island \textbf{s}. In the derivations below, I'm going to think about two types of islands $\textbf{s}_h$ and $\textbf{s}_l$, but this is not important. I will provide the general formulas a bit latter (as practice you might want to derive them your self). A workers utility associated with working in an island is (say, of type $h$) is
 \begin{align}
 \varepsilon(\textbf{s}_h) w(\textbf{s}_h)
 \end{align}
@@ -403,17 +407,17 @@ where $\varepsilon_h$ is the workers preference for being in location $h$ and $w
 \max\{\ \varepsilon(\textbf{s}_h)  w(\textbf{s}_h) \ , \ \varepsilon(\textbf{s}_l)  w(\textbf{s}_l) \ \}
 \label{eq:worker_choice}
 \end{align}
-Note that already you can get a sense of some of the issues with this formulation. When you see somebody in a location, even if wages are bad, or the labor market looks bad, this model says the reason the guy is there is because he has a strong preference for this location. In other words, it's where he wants to be. 
+Note that already you can get a sense of some of the issues with this formulation. When you see somebody in a location, even if wages are bad, or the labor market looks bad, this model says the reason the guy is there is because he has a strong preference for this location. In other words, it's where he wants to be.
 
 \medskip
-\noindent \textbf{Timing.} Again, this will be a repeated static model. Each period all states are revealed including the shocks $\varepsilon$ associated with each island type $\textbf{s}$. Then the workers chose where to work given complete information. The next period/day/year things start anew. 
+\noindent \textbf{Timing.} Again, this will be a repeated static model. Each period all states are revealed including the shocks $\varepsilon$ associated with each island type $\textbf{s}$. Then the workers chose where to work given complete information. The next period/day/year things start anew.
 
 \medskip
 \noindent Now the want operator here is to connect the individual workers choice in (\ref{eq:worker_choice}) with the measure of workers $\mu(\textbf{s})$ that determine labor supply and production within each location. To do so we will use the \citet{eaton2002technology} insight to chose an well behave distribution on preferences with respect to the max operator above. So across the population of workers, preferences for each island state $\textbf{s}$ are distributed according to independent Frechet distributions:
 \begin{align}
 G(\varepsilon(\textbf{s})) = \exp\left(-T(\textbf{s})\varepsilon(\textbf{s})^{-\gamma}\right).
 \end{align}
-The $T(\textbf{s})$ parameter controls the average preference of a worker in island type $\textbf{s}$ and then $\gamma$ controls the dispersion. This is parameterized as in \citet{eaton2002technology} so a larger $\theta$ means there is less dispersion in preferences. I'm not going to do much with the $T(\textbf{s})$, but one way to think about it is that in reduced form it could represent the idea that some islands with different states are more desirable than others. The common $\gamma$ here is important though because without it the nice math below will not work out. 
+The $T(\textbf{s})$ parameter controls the average preference of a worker in island type $\textbf{s}$ and then $\gamma$ controls the dispersion. This is parameterized as in \citet{eaton2002technology} so a larger $\theta$ means there is less dispersion in preferences. I'm not going to do much with the $T(\textbf{s})$, but one way to think about it is that in reduced form it could represent the idea that some islands with different states are more desirable than others. The common $\gamma$ here is important though because without it the nice math below will not work out.
 
 \subsection{Deriving the Employment Shares}
 
@@ -429,10 +433,10 @@ where $\tilde w$ is the relative wage. Equation \ref{eq:share_prob} says the fol
 \mu(\textbf{s}_h) = \mathrm{Prob}\left(w_h \varepsilon_h >  w_l\varepsilon_l\right) = \int_0^{\infty}\left[\int_0^{\tilde w\varepsilon_h}g(\varepsilon_h,\varepsilon_l)d\varepsilon_l\right]d\varepsilon_h = \frac{T_h w_h ^{\gamma}}{T_lw_l^{\gamma} + T_h \tilde w_h ^{\gamma}}
 \label{eq:share_formula}
 \end{align}
-which is the standard share formula. So if workers receive a relatively higher wage in island $h$ , then this means that the share of workers on island type $h$ will be larger. Second, returning to $T$s, this says if island type $h$ is a more ``attractive'' place to be in a utility sense, then more people will live and work there. Finally, note as well how a location is a relative statement. It's never about in absolute terms one place is better than the other, but how one place is relative to the ``average'' location (the object in the denominator) that matters. 
+which is the standard share formula. So if workers receive a relatively higher wage in island $h$ , then this means that the share of workers on island type $h$ will be larger. Second, returning to $T$s, this says if island type $h$ is a more ``attractive'' place to be in a utility sense, then more people will live and work there. Finally, note as well how a location is a relative statement. It's never about in absolute terms one place is better than the other, but how one place is relative to the ``average'' location (the object in the denominator) that matters.
 
 \medskip
-\noindent Now to match it up with the model discussed above recall that there were a discrete number of states $\textbf{s}$ (the cross of $z$ by $p_w$) which we will denote as $N$. Second, let's not worry about differences in $T$s across island states, so we can simply assume that the $T$s take the same value, one for example. Using the same algebra as above, the general formula is 
+\noindent Now to match it up with the model discussed above recall that there were a discrete number of states $\textbf{s}$ (the cross of $z$ by $p_w$) which we will denote as $N$. Second, let's not worry about differences in $T$s across island states, so we can simply assume that the $T$s take the same value, one for example. Using the same algebra as above, the general formula is
 \begin{align}
 \mu(\textbf{s}) = \frac{w(\textbf{s})^{\gamma}}{\sum_{s \in \mathcal{S}} w(\textbf{s})^{\gamma}}
 \end{align}
@@ -440,8 +444,8 @@ Again, islands with higher wages will have more people working on them. This is 
 \begin{itemize}
 \item This setup does nicely pick up the idea that labor will act like it is fixed within a location, but how much labor is fixed there will depend upon the wage in that location. Labor will be in every location, like we started with. Do you know why?
 
-\item The elasticity $\gamma$ plays the following role. As $\gamma$ becomes larger, a given change in wages will translate into a larger change in the share of workers working there. Why? As $\gamma$ becomes larger, the preference shocks become less dispersed. So workers are now more ``sensitive'' to wage considerations when choosing a location. In contrast, as $\gamma$ becomes small, preferences matter more and thus a larger wage response is needed to get people to move. 
-    
+\item The elasticity $\gamma$ plays the following role. As $\gamma$ becomes larger, a given change in wages will translate into a larger change in the share of workers working there. Why? As $\gamma$ becomes larger, the preference shocks become less dispersed. So workers are now more ``sensitive'' to wage considerations when choosing a location. In contrast, as $\gamma$ becomes small, preferences matter more and thus a larger wage response is needed to get people to move.
+
 \item Also, reflect on this. In the standard Ricardian model with free mobility of labor, this is like $\gamma$ becoming arbitrarily large. In other words, the labor supply curve becomes flat with it's intercept at the one, common, equilibrium wage.
 
 \item  Note that this way different than your traditional ``macro'' labor supply discussion. There the issues are either about intensive margin (hours worked) or extensive margin (work or not).\footnote{Adding an extensive margin is easy, just add an island, $w_o$ for being out of the labor force and treating $w_o$ as a transfer or home production (would have to be mindful of market clearing)} Here the margin is really about location or migration. This is a relevant margin that I think the traditional macro labor supply literature has not thought about much. And is an important issue given the decline in migration in the US. But the repeat static nature of things does strain the interpretation here of this being a model of migration.
@@ -454,6 +458,52 @@ where the left-hand side is the total quantity demanded and then the right-hand 
 
 \newpage
 
+\subsection{A ``Labor Supply'' Equation}
+
+Note that we can use these equations to get towards and ADH style labor supply equation (with caveats). The first thing that I want to do is define this:
+\begin{align}
+\left(\sum_{s \in \mathcal{S}} w(\textbf{s})^{\gamma}\right)^{\frac{1}{\gamma}} = \Phi.
+\label{eq:multi_lat_resit}
+\end{align}
+which then we can express the labor shares as
+\begin{align}
+\mu(\textbf{s}) = w(\textbf{s})^{\gamma}\Phi^{-\gamma}
+\label{eq:simple_mu}
+\end{align} 
+What is $\Phi$? Lot's of things! But for now the way to think about this is a summary statistic of aggregate, labor market conditions in the sense that it is a geometric sum of individual wages in each island. This is closely related to what \citet{anderson2004trade} called the ``multi-lateral resistance'' term in trade models. Here what it is doing is saying, well where should I locate. It depends not on bilateral comparisons, but on a comparison of each wage vs. the aggregate. And that's what determines the share of people going here. This is also related to the ``irrelevance of independent alternatives'' in standard consumer discrete choice models. 
+
+\medskip
+\noindent What I'm going to do is to take (\ref{eq_tax:wage_home_share_prp}) and plug it in for the wage in (\ref{eq:simple_mu}). Doing so gives me:
+\begin{align}
+\mu(\textbf{s}) = \left(\omega(\textbf{s})^{\frac{1}{\theta}} \hat \mu( \textbf{s})^{\frac{-1}{\theta}}z^{\frac{\theta-1}{\theta}} Q^{\frac{1}{\theta}} \right)^{\gamma} \Phi^{-\gamma}
+\label{eq:simple_mu}
+\end{align}
+And then taking first differences across time:
+\begin{align} 
+\Delta \log \mu(\textbf{s}) = \underbrace{\frac{\gamma}{\theta}}_{\beta}\Delta \log \left( \omega(\textbf{s})/\hat \mu( \textbf{s})\right) +  \underbrace{\frac{\gamma}{\theta}\Delta \log Q - \gamma \Delta \log \Phi}_{\gamma_t} + \underbrace{\Delta \log \left(z^{\frac{\gamma (\theta-1)}{\theta}}\right)}_{\epsilon_{s,t}},
+\label{eq:adh_LS_regression}
+\end{align}
+Which is nice. It shows how trade induces labor supply movements. A couple things about this. 
+\begin{itemize}
+\item This equation shares all the nice/bad properties of the ADH specification. GE/Aggregate stuff shows up in the time effect. The error term is correlated with trade exposure, but a plausible instrument would be another countries imports. 
+
+\item The new issue here is now that the $\Phi$ is showing up. So what this means is that when we see labor supply adjust, we can just think about determines of the individual island wage, we need to think about how ALL OTHER ISLANDS are changing. This is why the $\Phi$ is in here.
+
+\item This is (I think) essentially what Costas was talking about in his paper last week. In fact, what I think they are doing is using the ideal that the $\Phi$ can be broken up by location and pulled out explicitly, then if you know how all other wages changed, you can determine at least some component of the GE effect which is embedded in $\Phi$.
+    
+\item \textbf{Identifying GE effects?} Here is my idea, now we have \ref{eq:adh_LS_regression} and \ref{eq:adh_regression}, so from the two specifications we can pin down the labor demand elasticity $\theta$ and the labor supply elasticity $\gamma$. Then with the two time effects, can we pull out the change in $Q$ and the change in $\Phi$? Need to put in aggregate TFP as a confounder, but perhaps up to a scale we can do this?
+\end{itemize}
+Where this is not so nice...
+\begin{itemize}
+\item Again, to call this labor supply, while correct, is not what standard Macro researchers think it is. Fine. The issue is how to map it to the data. If anything, this is really about population or migration, not an extensive margin movement like participation falls within a labor market.
+    
+\item If this is really about migration? What was the timing? Is this a good model of migration? I have more questions here than answers, but I have a lot of doubts. 
+
+\item If you did take a stand on this as being a model of migration, the issue is that ADH found very small migration effects (zero). \citet{greenland2017import} do find effects once pretrends are taken care of. But I guess what I'm saying this is going to imply probably, a low $\gamma$. In other words a lot of unobserved heterogenaity to prevent people from moving. This is a common issue in these models is that (absent other mechanisims), it's the $\varepsilon$'s that do a lot of the work.
+\end{itemize}
+
+\newpage
+
 \subsection{Social Welfare}
 
 Now here is where things start to get (i) disappointing and (ii) still helpful for developing intuition. I'm going to define the following within country (utilitarian) social welfare function:
@@ -461,7 +511,7 @@ Now here is where things start to get (i) disappointing and (ii) still helpful f
 U = \sum_{s \in S} \left\{\int \varepsilon(\textbf{s}) w(\textbf{s})d\varepsilon \right\} \pi(\textbf{s})
 \label{eq:expected_utility}
 \end{align}
-where starting from the most inner part: utility for a worker on island $\textbf{s}$, then integrated over all workers in choosing to work in island $\textbf{s}$ (I need better notation here), then integrated over all islands (this is the sum with the probability weights). So the key issue is to compute the inner bracket, that is utility conditional on choosing that sector. 
+where starting from the most inner part: utility for a worker on island $\textbf{s}$, then integrated over all workers in choosing to work in island $\textbf{s}$ (I need better notation here), then integrated over all islands (this is the sum with the probability weights). So the key issue is to compute the inner bracket, that is utility conditional on choosing that sector.
 
 \medskip
 \noindent To compute expected utility conditional on choosing an island, we need to derive the preference distribution|conditional on those that select into the island. (Again to simplify notation, I'm going to revert back to the two state case and work through it, then show the general formula). This probability density is\ldots
@@ -496,7 +546,7 @@ which then implies that the ratio of the two is equal to
 \begin{align}
 \mathrm{Prob}\left( \varepsilon_h < \varepsilon | w_h \varepsilon_h >  w_l\varepsilon_l\right) = \exp\left[-\left(T_l\tilde w ^{-\gamma} + T_h \right)\varepsilon^{-\gamma}\right]
 \end{align}
-which says that the conditional probability is itself distributed Frechet with centering parameter $\left(T_l\tilde w ^{-\gamma} + T_h \right)$. 
+which says that the conditional probability is itself distributed Frechet with centering parameter $\left(T_l\tilde w ^{-\gamma} + T_h \right)$.
 
 \medskip
 \noindent To make things a bit more simple, notice that $\left(T_l\tilde w ^{-\gamma} + T_h \right) = T_h \mu_h^{-1}$ in (\ref{eq:share_formula}). This follow by multiplying and dividing the high share formula by $\tilde w^{-\gamma}$. Then to compute the conditional expectation we just simply compute the expected value associated with the distribution
@@ -513,10 +563,16 @@ which has the flavor of the \citet{arkolakis2012new} formula. The key thing to n
 \end{align}
 Now for simplicity, let's drop the $T$s and then ask what is utility within a group? It is the wage times the average preference for that location
 \begin{align}
-w(\textbf{s}) \mu(\textbf{s})^{\frac{-1}{\gamma}} =  w(\textbf{s}) \left(\frac{w(\textbf{s})^{\gamma}}{\sum_{s \in \mathcal{S}} w(\textbf{s})^{\gamma}}\right)^{\frac{-1}{\gamma}} 
- =  \left(\sum_{s \in \mathcal{S}} w(\textbf{s})^{\gamma}\right)^{\frac{1}{\gamma}} = \Phi. 
+w(\textbf{s}) \mu(\textbf{s})^{\frac{-1}{\gamma}} =  w(\textbf{s}) \left(\frac{w(\textbf{s})^{\gamma}}{\sum_{s \in \mathcal{S}} w(\textbf{s})^{\gamma}}\right)^{\frac{-1}{\gamma}}
+ =  \left(\sum_{s \in \mathcal{S}} w(\textbf{s})^{\gamma}\right)^{\frac{1}{\gamma}} = \Phi.
 \end{align}
-Notice what just happened. \textbf{Utility is independent of the island a worker is on. It does not depend on \textbf{s}}. It says, in terms of distributional effects, even though labor earnings are moving around with trade exposure (\ref{eq:adh_regression}), there is no effect on utility in the sense that one place gains more or less. It's all the same. 
+Notice what just happened. \textbf{Utility is independent of the island a worker is on. It does not depend on \textbf{s}}. It says, in terms of distributional effects, even though labor earnings are moving around with trade exposure (\ref{eq:adh_regression}), there is no effect on utility in the sense that one place gains more or less. It's all the same. Another way to put this is suppose we did have group utility $\Phi$ and then regressed the change in this on the change in trade exposure, there would be no effect!
+
+\medskip
+\noindent Let me try and explain what is going on here and then raise some open questions. First, this is purely about the distributional assumption (independent Frechet). If we had log normal on the preferences, for example, you would not get this result. From an economics standpoint we need to think through the selection issues. Take for example some place $\textbf{s}$ that experiences a decline in the wage. What happens, well there are some marginal guys in $\textbf{s}$, that will chose a different location. Who are these guys? Well they were the ones with the comparative preference for that location. But in this model comparative preference lines up with absolute preference, i.e. the guys who are there, in a likelihood sense are also the (absolute terms) the high preference guys. But the guys who select out probably had the lowest of the high for that location. So that location is shedding the guys with the lowest preference in that location. What does that mean, average utility is increasing. 
+
+\medskip
+\noindent Bear with me a bit more. So while the wage might be decreasing, only the highest guys remain. So how average utility behaves in the group is an open question. With the Frechet it's not. The extensive margin movement behaves in a way so that average utility across locations is always equalized!\footnote{In \citet{lagakos2013selection} we had the Frechet shocks on individual productivity and you get the result that average wages across locations are equalized! So even though there is all this selection going on in the background/micro-level, the aggregate outcome looks like homogenous labor model.} This is deep. Not obvious. But it is central to the mechanics about how Frechet trade models or Frechet Roy models operate.
 
 
 \newpage
