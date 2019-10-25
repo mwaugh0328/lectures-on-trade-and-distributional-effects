@@ -580,8 +580,8 @@ A couple of things I want to point out/raise questions
 \item Is wage inequality good here or bad? $\gamma > 1$ and I forgot jensens inequality. But you tell me?
 
     Update, it looks like a mean preserving spread in wages will \textbf{increase utility}! I think this is all about option value affects. Because of the max operator on this, what people really want is a good wage out there that can help them.
-    
-    What would be interesting here is to work through (\ref{eq:expected_utility_phi}) and make a couple of decompositions: (i) pull out the level effect from a lower price of goods (so the CES) component and (ii) the ``spread'' component. A second interesting decomposition is relative to the case of frictionless labor mobility. So characterize the wage, call it $w*$, then compare this relative to the value. 
+
+    What would be interesting here is to work through (\ref{eq:expected_utility_phi}) and make a couple of decompositions: (i) pull out the level effect from a lower price of goods (so the CES) component and (ii) the ``spread'' component. A second interesting decomposition is relative to the case of frictionless labor mobility. So characterize the wage, call it $w*$, then compare this relative to the value.
 
 \item The right measure of utility. While the computations above are correct. What is not obvious to me is the correct way to compare things across regimes. This I think depends on the nature of the preference shocks. Are they fixed? Or do they change over time? The related issue is do we want to do group by group or literally individual level. The real problem is that I've been very loose about a lot of thing (also an explicit dynamic model would solve most of this)
 
@@ -596,7 +596,7 @@ A couple of things I want to point out/raise questions
 Here let me raise a couple of issues why a dynamic model is important in this context. One of the want's is to say, ok, China shows up big time in the 2000s, what happens to the people living in locations that relatively hardest hit\ldots
 \begin{itemize}
 \item To answer this question, we need the following (i) a notion of initial conditions and where people are initially are (the theory above does this) and (ii) a notion of where  people and the economy are going in response to the China/Trade shock. The theory above is|at best|vague about this issue. At worst, it has absolutely nothing to saw.
-    
+
 \item I think a dynamic model fill in (ii). Thinking about individual decisions and linking there actions across time allows us to think through/answer questions about how the economy would respond to a China shock.
 
 \item A third issue is that a dynamic model also allows us to bring in data about how people are moving across space. In the static model, this is not clear. And again in the dynamic migration model, this becomes much more obvious. And then it allows us to validate the model in a more concrete sense.
@@ -604,23 +604,45 @@ Here let me raise a couple of issues why a dynamic model is important in this co
 
 \section{Just Preference Shocks, Dynamic Model}
 
-So the stuff I had above is a lot like \citet{galle2015slicing}. The stuff below will be much more like \citet{caliendo2015trade} and \citet{artucc2010trade}. Also he was here at CEMFI did work on this Joan Monras, these are essentially dynamic discrete choice models....
+So the stuff I had above is a lot like \citet{galle2015slicing}. The stuff below will be much more like \citet{caliendo2015trade} and \citet{artucc2010trade}. Also here at CEMFI (or was) Joan Monras did work on this as well, these are essentially dynamic discrete choice models.
 
 \medskip
-\noindent Here is how I'm going to do this. The value function of a guy who stays on an island will look like this.
+\noindent Here is how I'm going to do this (it will be a bit different, but I'll show how to collapse this thing to \citet{caliendo2015trade} and \citet{artucc2010trade}) later. The value function of a guy who stays on an island will look like this.
 \begin{align}
 V(\textbf{s})^{st} = w(\textbf{s}) + \beta E V(\textbf{s}') + \epsilon^{st}
 \label{eq:expected_utility_stay}
 \end{align}
-so he gets to utility associated with the wage that he earns, he receives a preference shock (now additive) associated with staying, then he gets next periods expected value function. Not that they state of an island is moving around with the productivity shocks and work price shocks. That's why we have this here.\footnote{This source of randomness is not in your typical migration model. I want it here for a lot of reasons to be explained below}. Then the guy who moves gets this
+so he gets to utility associated with the wage that he earns, he receives a preference shock (now additive) associated with staying, then he gets next periods expected value function. Note that the state of an island is moving around with the productivity shocks and world price shocks. That's why we have the expectation here (the idea is like I'm in a good location, but stuff happens now it's like a bad location).\footnote{This source of randomness is not in your typical migration model. I want it here for a lot of reasons to be explained below}. Then the guy who moves gets this
 \begin{align}
 V(\textbf{s})^{mv} = w(\textbf{s}) + \beta \tilde V + \epsilon^{mv} - \tau^{mv}
 \label{eq:expected_utility_move}
 \end{align}
-so I get the wage and what I'm going to do is say that $\tilde V$ is the expected value associated with a move (which I will describe a bit more below). Then these guys get a moving shock which is shifted down by some $\tau^{mv}$. The latter value is like a dis-utility of moving and is there to make sure people are not flying all over the place. Also while utility is linear here, this is usually talked about in terms of this being in units of utils. That is there is no sense in which there is a resource cost of a move. This I think is a key issue here. 
+so I get the wage and what I'm going to do is say that $\tilde V$ is the expected value associated with a move (which I will describe a bit more below). Then these guys get a moving shock which is shifted down by some $\tau^{mv}$. The latter value is a dis-utility of moving and it is here to make sure people are not flying all over the place. Also while utility is linear (so what I'm about to say does not matter), this is usually talked about in terms of this being in units of utils. That is there is no sense in which there is a resource cost of a move and it won't be as it will not show up in the equilibrium conditions above). 
 
 \medskip
-\noindent Then the value function is the outer envelope of the two value functions described above:
+\noindent The expected value associated with a move $\tilde V$. Here we can do a lot of things. I'm going to do the simplest. When you move you go to a random island. Specifically, 
+\begin{align}
+\tilde V = \sum_{s \in S} \pi(\textbf{s}) V(\textbf{s})
+\end{align}
+where you get the value function (defined below) of a guy on island $\textbf{s}$ and the probability distribution across this is according to the invariant distribution associated with the Markov chain described above. This is not the only way to do this. You could also do something like this: Once you move, you could target the island with the highest wage, call this island $s*$ and then 
+\begin{align}
+\tilde V = \sum_{s \in S} \mathcal{P}(\textbf{s} | \textbf{s*}) V(\textbf{s})
+\end{align}
+where notice, because there is randomness in the island type, you can't target perfectly. It's like saying, today New York is awesome. Ok I'm going there. I show up next period and things changed. New York is not as great as it was. Well what is the probability that New York becomes like, say, Detroit\ldots it's given by the Markov chain $\mathcal{P}(\textbf{s} | \textbf{s*})$!
+
+\medskip
+\noindent One more example, you could add in another layer of preference shocks. So there is $\varepsilon$ for each location $\textbf{s}$ like above. How would you do this? 
+\begin{align}
+\textbf{s*} = \mbox{arg}\max_{s \in S} \left\{V(\textbf{s}) + \varepsilon(\textbf{s}) \right\}\\
+\nonumber \\
+\tilde V = \sum_{s \in S} \mathcal{P}(\textbf{s} | \textbf{s*}) \left( V(\textbf{s}) + \varepsilon(\textbf{s}) \right)
+\end{align}
+Same idea as with the max labor market, not it's about the preference shock shows up as well. If we remove the uncertainty on islands, then we collapse to \citet{caliendo2015trade} and \citet{artucc2010trade}. 
+
+
+
+\medskip
+\noindent I still have not told you about the value function. Then the value function is the outer envelope of the two move or stay value functions described above:
 \begin{align}
 V(\textbf{s}) = \max \left\{ V(\textbf{s})^{st}, V(\textbf{s})^{mv} \right\}
 \end{align}
@@ -629,10 +651,10 @@ which then if we say that the $\epsilon$s are distributed Type 1 extreme value d
 \hat \mu(\textbf{s})^{st} = \frac{\exp \left( V(\textbf{s})^{st} \right)^{\sigma}}{\exp \left(V(\textbf{s})^{st}\right)^{\sigma} + \exp \left(V(\textbf{s})^{mv}\right)^{\sigma}}
 \label{eq:migration_shares}
 \end{align}
-so the key thing here is (i) we get a similar, nice closed for expression for how many people are staying or moving (and unlike the static model, they are staying or moving) and then (ii) the key difference is that it's not the wage that matters but the value associated with being in that location. 
+so the key thing here is (i) we get a similar, nice closed for expression for how many people are staying or moving (and unlike the static model, they are staying or moving) and then (ii) the key difference is that it's not the wage that matters but the value associated with being in that location. Also note that $\mu(\textbf{s})^{st}$ is not the population on the island. It is the fraction of people that move. As we talk about below, what we need to do is to compute the distribution of people across islands. 
 
 \medskip
-\noindent \textbf{A sketch of an equilibrium} This is a bit more complicated because of two reasons: (i) the value functions need to be computed using dynamic programming techniques (value function iteration will work well here) and (ii) we need to be mindful about what the population is on each island type. This latter point is trick because there are two things going on. First, people are leaving islands and second, island's types are changing. That is the shocks are moving around and the state is transiting. Let's walk through these steps:
+\noindent \textbf{A sketch of an equilibrium} This is a bit more complicated because of two reasons: (i) the value functions need to be computed using dynamic programming techniques (value function iteration will work well here) and (ii) we need to be mindful about what the population is on each island type. This latter point is tricky because there are two things going on. First, people are leaving islands and second, island's types are changing. That is the shocks are moving around and the state is transiting. Let's walk through these steps:
 \begin{itemize}
 \item Step one. Guess some wages.
 
@@ -640,28 +662,73 @@ so the key thing here is (i) we get a similar, nice closed for expression for ho
 
 \item Step three. Use (\ref{eq:migration_shares}) to compute who is staying and who is moving.
 
-\item Step four. Hard part. Compute the stationary distribution of people across islands. Here is how this would work in a simple two state (closed economy case). So there $\textbf{s}_1$ and $\textbf{s}_2$ with a markov chain that determines the probability that a state transits from one to another, so $\mathcal{P}(\textbf{s}' | \textbf{s})$. 
-    
-    Here is what we want to think about is what happens to the population of people on island of type state $\textbf{s}_1$? So some people are not moving which is $\hat \mu(\textbf{s}_1)^{st}$, but remember islands are changing type, so that only a fraction of those guys are still in type one areas how many 
+\item Step four. \textbf{Hard part.} Compute the stationary distribution of people across islands. Here is how this would work in a simple two state (closed economy case). So there $\textbf{s}_1$ and $\textbf{s}_2$ with a Markov chain that determines the probability that a state transits from one to another, so $\mathcal{P}(\textbf{s}' | \textbf{s})$. Also remember that our assumption is that movers go to a random island! 
+
+    Here is what we want to think about is what happens to the population of people on island of type state $\textbf{s}_1$? So some people are not moving which is $\hat \mu(\textbf{s}_1)^{st}$, but remember islands are changing type, so that only a fraction of those guys are still in type one areas how many
     \begin{align}
-    \mu(\textbf{s}_1) = \underbrace{\mathcal{P}(\textbf{s}_{1} | \textbf{s}_{1}) \times \mu(\textbf{s}_1) \times \hat \mu(\textbf{s}_1)^{st} + \mathcal{P}(\textbf{s}_1 | \textbf{s}_{2})\times \mu(\textbf{s}_2) \times \hat \mu(\textbf{s}_2)^{st}}_{\mbox{stayers}} 
+    \mu(\textbf{s}_1) = \underbrace{\mathcal{P}(\textbf{s}_{1} | \textbf{s}_{1}) \times \mu(\textbf{s}_1) \times \hat \mu(\textbf{s}_1)^{st} + \mathcal{P}(\textbf{s}_1 | \textbf{s}_{2})\times \mu(\textbf{s}_2) \times \hat \mu(\textbf{s}_2)^{st}}_{\mbox{stayers}}
     \nonumber \\
-    \nonumber + \underbrace{\pi(\textbf{s}_1)\times (\mu(\textbf{s}_1) \times \mu(\textbf{s}_1)^{mv} + \mu(\textbf{s}_1)\times \mu(\textbf{s}_2)^{mv})}_{\mbox{movers}}
+    \nonumber + \underbrace{\pi(\textbf{s}_1)\times (\mu(\textbf{s}_1) \times \mu(\textbf{s}_1)^{mv} + \mu(\textbf{s}_2)\times \mu(\textbf{s}_2)^{mv})}_{\mbox{movers}}
     \end{align}
+    This says the following. The mass on type one islands $\mu(\textbf{s}_1)$:
+    \begin{itemize}
+    \item $\mathcal{P}(\textbf{s}_{1} | \textbf{s}_{1}) \times \mu(\textbf{s}_1) \times \hat \mu(\textbf{s}_1)^{st}$ probability that islands stay type one, times the mass on type one, times the stayers. 
+    \item $\mathcal{P}(\textbf{s}_1 | \textbf{s}_{2})\times \mu(\textbf{s}_2) \times \hat \mu(\textbf{s}_2)^{st}$ these are the stayers from island type two which has some probability of becoming a type one island.
+    \item Then there are some movers: $\pi(\textbf{s}_1)\times (\mu(\textbf{s}_1) \times \mu(\textbf{s}_1)^{mv}$ these are like the ``failed movers'' in the sense that they moved, but ended back up on type on islands. And then $\pi(\textbf{s}_1) \mu(\textbf{s}_1)\times \mu(\textbf{s}_2)^{mv})$ are the guys coming from type two islands.    
+    \end{itemize}
+    
+    
     Or to put this in matrix form we would have:
     \begin{align*}
-    \begin{bmatrix}\mu(\textbf{s}_1) \\ \vdots \\ \mu(\textbf{s}_N)\end{bmatrix} = 
-    \begin{bmatrix}\mathcal{P}(\textbf{s}_{1} | \textbf{s}_{1})& \ldots & \mathcal{P}(\textbf{s}_{1} | \textbf{s}_{N}) \\ \vdots & \ldots & \vdots \\ 
-    \mathcal{P}(\textbf{s}_{1} | \textbf{s}_{N})& \ldots & \mathcal{P}(\textbf{s}_{N} | \textbf{s}_{N})\end{bmatrix} 
-    \times \begin{bmatrix}\mu(\textbf{s}_1) \times \hat \mu(\textbf{s}_1)^{st} \\ \vdots \\ \mu(\textbf{s}_1) \times \hat \mu(\textbf{s}_N)^{st})\end{bmatrix} + 
+    \begin{bmatrix}\mu(\textbf{s}_1) \\ \vdots \\ \mu(\textbf{s}_N)\end{bmatrix} =
+    \begin{bmatrix}\mathcal{P}(\textbf{s}_{1} | \textbf{s}_{1})& \ldots & \mathcal{P}(\textbf{s}_{1} | \textbf{s}_{N}) \\ \vdots & \ldots & \vdots \\
+    \mathcal{P}(\textbf{s}_{1} | \textbf{s}_{N})& \ldots & \mathcal{P}(\textbf{s}_{N} | \textbf{s}_{N})\end{bmatrix}
+    \times \begin{bmatrix}\mu(\textbf{s}_1) \times \hat \mu(\textbf{s}_1)^{st} \\ \vdots \\ \mu(\textbf{s}_1) \times \hat \mu(\textbf{s}_N)^{st})\end{bmatrix} +
     \begin{bmatrix}\pi(\textbf{s}_1) \\ \vdots \\ \pi(\textbf{s}_N)\end{bmatrix}\times \begin{bmatrix} \sum_{N}\mu(\textbf{s}_n) \times \mu(\textbf{s}_n)^{mv} \\ \vdots \\ \sum_{N}\mu(\textbf{s}_n) \times \mu(\textbf{s}_n)^{mv} \end{bmatrix}
     \end{align*}
     This is why this is hard is that now we have a system of equations with the populations of $\mu$ on both sides. A stationary equilibrium is a $\mu$ that satisfies this. One approach (which should work as long as the markov chain is well behaved) is to guess a $\mu$ and then iterate on this until it converges.
-    
+
 \item Step Five. Given the populations, check if the wages that satisfy the system of equations above holds. If not, then update the wages (or prices) and do it all again.
 \end{itemize}
+Lots of things to note about this setting:
+\begin{itemize}
+\item \textbf{The Moving Protocal.} The idea here is that if you change the moving protocol, all you need todo is swap out the last term. In fact, if you (i) eliminate the random shocks and (ii) have prefernce shocks across locations driving where people end up, then you would essentially get the same exact formula from \citet{caliendo2015trade} which is like a fixed point on the sum over the moving probabilities. 
+    
+\item \textbf{Where do people end up?} This is not as clear as in the static model, but here is some intuition. First, what is important/nice is that the preference moving shocks ensure that people are always moving. Then with the moving protocol, people are always ending up in all locations. So in other words, there are very strong dispersion forces built into the shock structure that get people ``spread'' across space. This is important because a worry would be (from a computational perspective) that there is (i) some absorbing state that makes no sense or (ii) multiple invariant distributions (and hence equilibria) that depend upon initial conditions. I don't have a proof of this, but computation it is clear that there is one stationary distribution and the shock structure helps a lot here. 
+    
+    Ok fine. Still you will get the idea that more people will tend to end up in high wage locations, just like the static model. But what keeps them there?
+    
+\item \textbf{Why do people move?} Obviously it has to do with the preference shock. But (i) current wage and (ii) future wages. The current wage is clear, in high wage locations people are less likely to move. But the Markov chain starts to play a role in the sense that the persistence of an island state will start to matter. Suppose that stuff is iid. Well if you are in a bad island, there is a lot of mean reversion, so it makes less sense to suffer the utility cost of a move and go some place else. If stuff is near a random walk (so a lot of persistence), then this will be a strong force to exit if things get bad, why? Because things are going to be bad for a long time.
+    
+    I think this is an important force (especially if there is curvature on utility and the temporal patter of consumption matters). Moving is like an asset, but an asset that pays off very well in bad states of the world.  
+    
+    Back to where people end up, what happens with mild to strong persistence in the shocks is that (i) if you are in a bad place you try and get out and (ii) if you are in a good place you stay for a while. The in equilibrium wages have to move in such a way that will support these desires. 
+    
+\item \textbf{Why don't people move?} One is the preference shock. Two is the disutility of moving. But also here there is some uncertainty associated with the move. The moving protocol matters here because there is a chance I end up in a similarly bad location. With the linear utility, I don't think this force is super strong. But with curvature, then this will start to bite. 
+    
+\item \textbf{Gains/Losses from trade?} So in a lot of ways, the wage issues discussed above are exactly the same! All we did is swap out the ``labor supply side'' block of the model and put in a dynamic formulation. This is nice. So people who are initially in a bad or become import exposed will suffer wage losses as in the ADH sense. 
+    
+    But here is the thing. This is a dynamic model. So stuff in the future is baked into utility today. And recall what I was mentioning above about people (eventually go all over the place). So they dynamic model introduces a new gain from trade in the sense that at some point down the road, losers today become winners in the future. This is either because (i) they can move or (ii) islands change. This is what \citet{artucc2010trade} emphasized as option value effects. Yes it's bad, but in the future the options are much more attractive. This kind of also relates to the static model is that there is a sense in which variance in wages across islands is good, why? Because (i) the high wage is really good and (ii) the low wage is not as bad as I can always move.
+  
+\end{itemize}
+Final example to think through and develop intuition. Suppose there are two types of guys high $\beta^h$ and low $\beta^l$, so some guys are more patient then others. I want to think of these as the young and old. Where will they end up in the stationary equilibrium? I have not done this, but here is my conjecture:
+\begin{itemize}
+\item Bad places are full of impatient guys. Why, migration is a dynamic decision, and the old/impatient guys care less about the future. So they are less likely to try and escape from the bad islands.
 
-Some properties of this model\ldots
+\item Now if comparative advantage aligns with absolute advantage...bad places, with old people, are going to be hit by an increase in import exposure. 
+
+\item What about the gains from trade here. Well bad places, with old people suffer. Now here is the thing, because of dynamics, while you might be hurt today, you benefit from the high wages that come with trade in other places.  But the old guys are impatient. These things don't matter much to them. So they are doubly hurt. First, because of their impatience they are likely to get hit. And second, they get none of the dynamic gains that arrive in this model.
+\end{itemize}
+\medskip
+\noindent \textbf{Social welfare and Normative Issues.} First, with the linear utility, this should be equivalent to a complete-markets allocation. And no obvious role for intervention. 
+
+\medskip
+\noindent Once we introduce curvature, now there are risks that matter (location and moving risk) that the guys would like insurance against. And notice that once trade changes in the nature of wages across islands, it is also changing the risk of location and moving. Now we have an economy that (i) is not first-best because of the absence of markets to insure against the risks described above and (ii) trade is changing the desire and importance of this risk. This is where the paper that Spencer and I wrote \citet{lyon2018redistributing} which things about this exact tension.
+
+\medskip
+\noindent 
+
+
 
 \newpage
 
