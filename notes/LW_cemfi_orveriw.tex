@@ -1,0 +1,531 @@
+\documentclass[9pt,pdftex]{beamer}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{natbib}
+\usecolortheme{dolphin}
+\linespread{1.3}
+\definecolor{nblue}{RGB}{0,0,128}
+
+\bibliographystyle{ecta}
+\setbeamercovered{transparent}
+
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+%\setbeamerfont{alerted text}{series=\bfseries}
+
+\hypersetup{colorlinks=true, linkcolor=nblue,
+citecolor=nblue, urlcolor=nblue, bookmarks=false,
+pdfpagemode=UseNone,
+pdfstartview={XYZ null null 1.25},
+pdftitle={Quantifying the Losses from International Trade},
+pdfauthor={Spencer G. Lyon, Michael E. Waugh},
+pdfkeywords={economics, trade, dynamics, quant econ, lyon, waugh, incomplete markets, taxes, redistribution, progressivity, inequality, Ricardo, julia, migration, taxation, social insurance, China, global savings glut}}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{itemize subitem}[circle]
+\setbeamertemplate{enumerate items}[default]
+
+\setbeamerfont{frametitle}{size= \large}
+\setbeamerfont{ framesubtitle }{size = \footnotesize}
+\setbeamertemplate{frametitle}
+{
+\medskip
+\smallskip
+{\textsf{\underline{\insertframetitle\phantom{))))))))}}}}}
+\setbeamertemplate{items}[circle]
+\setbeamertemplate{itemize subitem}[circle]
+
+\theoremstyle{definition}
+
+
+\newtheorem{as}{Assumption}
+\newtheorem{df}{Definition}
+\newtheorem{lm}{Lemma}
+\newtheorem{prp}{Proposition}
+
+\usepackage[normalem]{ulem}
+\newcommand\redout{\bgroup\markoverwith
+{\textcolor{red}{\rule[.5ex]{1pt}{1pt}}}\ULon}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{\Large The Welfare Consequences of International Trade\\ and Policy Responses}
+\institute[Foo and Bar]{\normalsize\begin{tabular}[h]{c}
+Michael E. Waugh  \\
+NYU and NBER
+\end{tabular}}
+
+\date{\today}
+
+
+\begin{document}
+
+%\begin{frame}
+%\titlepage
+%\setcounter{framenumber}{0}
+%\section{}
+%\end{frame}
+%
+%
+%\begin{frame}[t]
+%\vspace{-.5cm}
+%\begin{figure}[t]
+%\centerline{\includegraphics[scale = 0.55]{wsj_photo.pdf}}
+%
+%\end{figure}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}[t]{Today's Talk}
+%Background evidence on trade exposure and its effects.\\
+%\bigskip
+%Overview of work I've done with Spencer Lyon (Stern 2018 PhD) which essentially asks two questions\ldots\\
+%\medskip
+%\textbf{1.} \textbf{\textcolor{red}{How Much Do the Losers Lose From Trade?}}
+%\begin{itemize}
+%\item From our paper ``Quantifying the Losses from International Trade''
+%\end{itemize}
+%\bigskip
+%\textbf{2.} \textbf{\textcolor{red}{Should a nation's tax system be more progressive as it opens to trade?}}
+%\begin{itemize}
+%\item From our paper ``Redistributing the Gains From Trade through Progressive Taxation''
+%\end{itemize}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%\vspace{1cm}
+%\begin{center}
+%\textbf{\textcolor{blue}{\large Background Evidence}}
+%\end{center}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}[t]
+%\frametitle{US Data: Rising Import Penetration\ldots Almost all from China}
+%\begin{figure}[t]
+%\centerline{\includegraphics[scale = 0.50]{../../figures/us_imports.pdf}}
+%
+%\end{figure}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}[t]
+%\frametitle{US Data: Deteriorating Trade Deficit}
+%\begin{figure}[t]
+%\centerline{\includegraphics[scale = 0.50]{../../figures/us_trade_deficit.pdf}}
+%\end{figure}
+%\end{frame}
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}[t]
+%\frametitle{ADH Evidence: Trade Exposure $\Rightarrow$ Bad Labor Market Outcomes}
+%\footnotesize
+%\begin{table}[t]
+%\setlength {\tabcolsep}{2.5mm}
+%\renewcommand{\arraystretch}{2.00}
+%\begin{center}
+%\begin{tabular}{l c c c}
+%\multicolumn{4}{c}{\normalsize \textbf{Labor Market Outcomes and Trade Exposure}}\\
+%\hline
+%\hline
+%&  \small $\Delta$ Labor Earnings & \small  $\Delta$ NILF & \small $\Delta$ Population\\
+%\cmidrule(lr){2-4}
+% \small Standardized $\Delta$ IPW & $\begin{array}{c}-4.30 \vspace{-.45cm}\\ \scriptstyle [-6.62, \ \ -2.00 ]\end{array}$ & $\begin{array}{c}1.11 \vspace{-.45cm}\\ \scriptstyle [0.52  ,\ \    1.72 ]\end{array}$ & $\begin{array}{c}-1.43 \vspace{-.45cm}\\ \scriptstyle [-3.33  ,\ \    0.48]\end{array}$\\
+%\hline
+%\end{tabular}
+%\parbox[c]{4.0in}{\vspace{.2cm}
+%{\scriptsize  \textbf{Note:} Values in brackets report 95-5 confidence intervals. $\Delta$ Labor Earnings is average household ``wage and salary`` income per adult; units are in decadal, percent changes. $\Delta$ NILF corresponds to the change in the not in labor force share. $\Delta$ IPW is standardized by neting out the mean and dividing by the standard deviation.}}
+%\end{center}
+%\bigskip
+%\end{table}
+%\end{frame}
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%\begin{frame}[t]
+%%\frametitle{Trade Exposure $\Rightarrow$ Limited Migration}
+%%\footnotesize
+%%\begin{table}[t]
+%%\setlength {\tabcolsep}{2.5mm}
+%%\renewcommand{\arraystretch}{2.00}
+%%\begin{center}
+%%%\textbf{\caption{ADH and GLM Evidence: Migration and Trade Exposure}\label{tb:glm_fact}}
+%% \vspace{0.3cm}
+%%\begin{tabular}{l c c}
+%%\multicolumn{3}{c}{\normalsize \textbf{Migration and Trade Exposure}}\\
+%%\hline
+%%\hline
+%%&  \small ADH $\Delta$ Population & \small  GLM, $\Delta$ Population \\
+%%\cmidrule(lr){2-3}
+%% \small Standardized $\Delta$ IPW & $\begin{array}{c}-0.05 \vspace{-.45cm}\\ \scriptstyle [-1.51 ,\ \    1.41 ]\end{array}$ & $\begin{array}{c}-1.43 \vspace{-.45cm}\\ \scriptstyle [-3.33  ,\ \    0.48]\end{array}$\\
+%%\hline
+%%\end{tabular}
+%%\parbox[c]{3.5in}{\vspace{.1cm}
+%%{\footnotesize \textbf{Note:} Values in brackets report 95-5 confidence intervals. \citet{greenland2017import} (GLM) replace ADH regional controls with agged population growth at the commute zone level.}}
+%%\end{center}
+%%\bigskip
+%%\end{table}
+%%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}
+%\vspace{1cm}
+%\begin{center}
+%\textbf{\textcolor{blue}{\large Lyon and Waugh (2018): ``Quantifying the Losses from International Trade''}}
+%\end{center}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}[t]{High-level Overview of Model\ldots}
+%A bunch of labor markets on which
+%\begin{itemize}
+%\item Households who live within that labor market,
+%\smallskip
+%\item Competitive producers on an island produce a differentiated good,
+%\smallskip
+%\item Producers are subject local and world productivity shocks.
+%\end{itemize}
+%\smallskip
+%Shocks $+$ actions of households determine the pattern of comparative advantage and, thus, a labor market's trade exposure. \\
+%\bigskip
+%
+%Households have some options\ldots
+%\begin{itemize}
+%\item Work or not
+%\smallskip
+%\item Stay or move to a new labor market, at some cost.
+%\smallskip
+%\item Consume and save or borrow in a simple risk free asset.
+%\end{itemize}
+%
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}[t]
+%\frametitle{Model Matches Aggregate $\Delta$ in Trade}
+%\begin{figure}[t]
+%\centerline{\includegraphics[scale = 0.50]{../../figures/us_imports_model.pdf}}
+%\end{figure}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}[t]{Model Matches Micro Evidence}
+%\footnotesize
+%\begin{table}[!t]
+%\setlength {\tabcolsep}{0.95mm}
+%\renewcommand{\arraystretch}{2.00}
+%\begin{center}
+%%\textbf{\caption{Calibration: Micro Moments and Parameters}\label{ta:cal_micro}}
+% \vspace{0.3cm}
+%\begin{tabular}{l c c c}
+%\hline
+%\hline
+%&  \small $\Delta$ Labor Earnings & \small  $\Delta$ NILF & \small GLM $\Delta$ Population \\
+%\cmidrule(lr){2-4}
+% \small Data & $\begin{array}{c}-4.30 \vspace{-.45cm}\\ \scriptstyle [-6.62, \ \ -2.00 ]\end{array}$ & $\begin{array}{c}1.11 \vspace{-.45cm}\\ \scriptstyle [0.52  ,\ \    1.72 ]\end{array}$ & $\begin{array}{c}-1.43 \vspace{-.45cm}\\ \scriptstyle [-3.33  ,\ \    0.48]\end{array}$\\
+% \small Model & $\begin{array}{c}-4.10\end{array}$ & $\begin{array}{c}1.24\end{array}$ & $\begin{array}{c}-1.92\end{array}$\\
+%\cmidrule(lr){2-4}
+%&  \small Demand elasticity $\theta$ & \small  Home production $w_h$ & \small $\nu$ shock $\sigma_{\nu}$\\
+%\small Parameter Values & $\begin{array}{c}10.15\end{array}$ & $\begin{array}{c}0.20\end{array}$ & $\begin{array}{c}0.96\end{array}$\\
+%\hline
+%\end{tabular}
+%\parbox[c]{4.15in}{\vspace{.1cm}
+%{\footnotesize \textbf{Note:} Values in brackets report 95-5 confidence intervals.  \citet{greenland2017import} (GLM) replace ADH regional controls with lagged population growth at the commute zone level. }}
+%\end{center}
+%\end{table}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}[t]
+%\frametitle{Surprise I: Trade with China Generated a BOOM!}
+%\begin{figure}[t]
+%\centerline{\includegraphics[scale = 0.50]{../../figures/cons_labor_model_no_R8.pdf}}
+%\end{figure}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}[t]
+%\frametitle{Surprise II: Trade with China IMPROVED the Trade Deficit!}
+%\begin{figure}[t]
+%\centerline{\includegraphics[scale = 0.50]{../../figures/us_deficit_model_no_R8.pdf}}
+%\end{figure}
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}[t]{Surprise III: Harsh Labor Market; Welfare? Most Gain, Few Loose}
+%\footnotesize
+%\begin{table}[t]
+%\setlength {\tabcolsep}{1.25mm}
+%\renewcommand{\arraystretch}{2.00}
+%\begin{center}
+%\begin{tabular}{l l c c}
+%\multicolumn{4}{c}{\textbf{\normalsize Welfare and Real Wages}}\\
+%\hline
+%\hline
+%&&  Welfare  &  $\Delta$ Log Wages \\
+%\cmidrule(lr){3-4}
+%\multirow{4}{*}{\rotatebox{90}{Initial Exposure}} &Import Exposed &  $\begin{array}{c}0.18 \vspace{-.45cm}\\ \scriptstyle [ \ 0.07 \ ]\end{array}$  & $\begin{array}{c}-2.32\vspace{-.45cm}\\ \scriptstyle \phantom{-}[ \ 0.07 \ ]\end{array}$  \\
+%&Non-Traded  & $\begin{array}{c}0.74 \vspace{-.45cm}\\ \scriptstyle [ \ 0.68 \ ]\end{array}$  & $\begin{array}{c}\phantom{-}0.23\vspace{-.45cm}\\ \scriptstyle \phantom{-}[ \ 0.68 \ ]\end{array}$\\
+%&Export Exposed  & $\begin{array}{c}1.65\vspace{-.45cm}\\ \scriptstyle [ \ 0.25 \ ]\end{array}$ & $\begin{array}{c}\phantom{-}4.38 \vspace{-.45cm}\\ \scriptstyle \phantom{-}[ \ 0.25\ ]\end{array}$\\
+%\hline
+%&Average & 0.94 & 0.94  \\
+%\hline
+%\end{tabular}
+%\parbox[c]{2.15in}{\vspace{.1cm}
+%{\footnotesize \textbf{Note:} Welfare values are lifetime consumption equivalents; values in brackets report the initial share of the population in that category.}}
+%\end{center}
+%\end{table}
+%
+%\end{frame}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\begin{frame}[t]
+%\frametitle{Surprise III: Most Gain, Few Loose}
+%\begin{figure}[t]
+%\centerline{\includegraphics[scale = 0.50]{../../figures/welfare_trade_shock.pdf}}
+%\end{figure}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\vspace{1cm}
+\begin{center}
+\textbf{\textcolor{blue}{\large Lyon and Waugh (2018): ``Redistributing the Gains From Trade through Progressive Taxation''}}
+\end{center}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{High-level Overview of Model\ldots}
+A bunch of labor markets on which
+\begin{itemize}
+\item Households who live within that labor market,
+\smallskip
+\item Competitive producers on an island produce a differentiated good,
+\smallskip
+\item Producers are subject local and world productivity shocks.
+\end{itemize}
+\smallskip
+Shocks $+$ actions of households determine the pattern of comparative advantage and, thus, a labor market's trade exposure. \\
+\bigskip
+
+Households have some options\ldots
+\begin{itemize}
+\item Work or not
+\smallskip
+\item Stay or move to a new labor market, at some cost.
+\smallskip
+\item Consume and save or borrow in a simple risk free asset.
+\end{itemize}
+
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Everything A-OK? \ Not quite.}
+In our model, the competitive equilibrium does not correspond with the socially optimal outcome.\\
+\begin{itemize}
+\item Households would like insurance against privately uninsurable shocks.
+\smallskip
+\item Some of these shocks are trade related, so tariffs might help!
+\begin{itemize}
+\smallskip
+\item \small \citet{Corden_74}, \citet{baldwin1982political}, \citet{newbery1984pareto}, \citet{Eaton85}, \citet{dixit1987trade, Dixit_89, dixit1989trade}.
+\end{itemize}
+\end{itemize}
+\bigskip
+Our idea: Rather than use tariffs, use the tax system.
+\begin{itemize}
+\item That is, the government could use a progressive tax system to provide social insurance.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Use Progressive Taxation to Insure the Losers from Trade?}
+One motive for progressive taxation: provide social insurance for privately uninsurable shocks (possibly trade related).
+\begin{itemize}
+\item \citet{varian1980redistributive} and \citet{eaton1980optimal}.
+\end{itemize}
+\bigskip
+But theses polices come with costs\ldots
+\begin{itemize}
+\item Reductions in labor supply; reductions in migration\ldots
+\smallskip
+\item $\Rightarrow$ Losses in economic efficiency.
+\end{itemize}
+\bigskip
+Our question:\\
+\smallskip
+\textbf{How does openness to trade change this cost-benefit calculation?}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]
+\frametitle{Social Welfare and Progressivity}
+\begin{figure}[t]
+\centerline{\includegraphics[scale = 0.50]{C:/github/TradeExposure/figures/social_welfare_baseline.pdf}}
+\end{figure}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]
+\frametitle{Optimal Progressivity Increases with Openness!}
+\begin{figure}[t]
+\centerline{\includegraphics[scale = 0.53]{C:/github/TradeExposure/figures/social_welfare_prog_diff_tau_fine.pdf}}
+\end{figure}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]
+\frametitle{Optimal Progressivity Increases with Openness!}
+\begin{table}[t]
+\small
+\setlength {\tabcolsep}{1.25mm}
+\renewcommand{\arraystretch}{1.5}
+\begin{center}
+\begin{tabular}{c c c c c c}
+\multicolumn{6}{c}{\textbf{\normalsize Openness and Optimal Progressivity }}\\
+\hline
+\hline
+ & & \multicolumn{2}{c}{Welfare} &\multicolumn{2}{c}{$\Delta$ Marginal Tax Rate} \\
+Imports/GDP & \small $\tau_p^*$ & \small Gains from $\tau_p^*$ & \small Losses from Flat & 90th Prct. & 10th Prct.\\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6}
+0.10 & 0.27 & 0.10 & -0.83& --- & --- \\
+0.20 & 0.32 & 0.34 & -1.39& 4.8 & -1.5 \\
+0.30 & 0.37 & 0.72 & -1.94& 8.8 & -1.9 \\
+0.40 & 0.45 & 1.38 & -2.62& 15.5 & -3.2 \\
+\hline
+\end{tabular}
+\parbox[c]{4in}{\vspace{.1cm}
+{\footnotesize \textbf{Note:} 90th Prct is the 90th percentile of the labor income distribution; 10th is the 10th percentile. Gains are consumption equivalent values between living in the baseline economy and an economy with an alternative progressivity parameter $\tau_p^*$.}
+}
+\end{center}
+\end{table}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]
+\frametitle{Are Tariffs Welfare Improving? No}
+\vspace{-.56cm}
+\begin{figure}[p]
+\centerline{\includegraphics[scale = 0.48]{C:/github/TradeExposure/figures/tariff_low_trade.pdf}}
+\end{figure}
+\small
+\vspace{-1.0cm}
+\textbf{This Economy, Imports/GDP = 0.20}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\begin{frame}[t]
+%\frametitle{Are Tariffs Welfare Improving? No}
+%\vspace{-.56cm}
+%\begin{figure}[p]
+%\centerline{\includegraphics[scale = 0.48]{../../figures/tariff_high_trade.pdf}}
+%\end{figure}
+%\small
+%\vspace{-1.0cm}
+%\textbf{This Economy, Imports/GDP = 0.40}
+%\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[t]{Final Thoughts}
+Hard to deny that the benefits of globalization have been under attack\ldots\\
+And motivating this attack is the idea that trade has imposed hardship on some segments of the population.\\
+\bigskip
+The goals of our work are too\ldots
+\begin{itemize}
+\item Understand and evaluate these hardships in an interpretable way
+\smallskip
+\item Provide sensible policy responses.
+\end{itemize}
+\bigskip
+\smallskip
+Bonus idea: Concerns about automation are directly related to our work.
+\begin{itemize}
+\item Like trade, automation is a labor saving technology that helps many, but harms those exposed to it.
+\smallskip
+\item Increasing progressivity as automation increases may improve welfare.
+\end{itemize}
+\bigskip
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+\newcounter{finalframe}
+\setcounter{finalframe}{\value{framenumber}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}[allowframebreaks]
+\frametitle{References}
+\footnotesize
+\bibliography{C:/github/TradeExposure/BIB/micro_price_bibtex}
+\end{frame}
+
+\end{document} 
